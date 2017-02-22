@@ -14,18 +14,18 @@
 <a name="introduction"></a>
 ## Introduction
 
-Laravel provides a variety of helpful tools to make it easier to test your database driven applications. First, you may use the `assertDatabaseHas` helper to assert that data exists in the database matching a given set of criteria. For example, if you would like to verify that there is a record in the `users` table with the `email` value of `sally@example.com`, you can do the following:
+Laravel provides a variety of helpful tools to make it easier to test your database driven applications. First, you may use the `seeInDatabase` helper to assert that data exists in the database matching a given set of criteria. For example, if you would like to verify that there is a record in the `users` table with the `email` value of `sally@example.com`, you can do the following:
 
     public function testDatabase()
     {
         // Make call to application...
 
-        $this->assertDatabaseHas('users', [
+        $this->seeInDatabase('users', [
             'email' => 'sally@example.com'
         ]);
     }
 
-Of course, the `assertDatabaseHas` method and other helpers like it are for convenience. You are free to use any of PHPUnit's built-in assertion methods to supplement your tests.
+Of course, the `seeInDatabase` method and other helpers like it are for convenience. You are free to use any of PHPUnit's built-in assertion methods to supplement your tests.
 
 <a name="resetting-the-database-after-each-test"></a>
 ## Resetting The Database After Each Test
@@ -39,9 +39,6 @@ One approach to resetting the database state is to rollback the database after e
 
     <?php
 
-    namespace Tests\Feature;
-
-    use Tests\TestCase;
     use Illuminate\Foundation\Testing\WithoutMiddleware;
     use Illuminate\Foundation\Testing\DatabaseMigrations;
     use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -57,9 +54,8 @@ One approach to resetting the database state is to rollback the database after e
          */
         public function testBasicExample()
         {
-            $response = $this->get('/');
-
-            // ...
+            $this->visit('/')
+                 ->see('Laravel 5');
         }
     }
 
@@ -70,9 +66,6 @@ Another approach to resetting the database state is to wrap each test case in a 
 
     <?php
 
-    namespace Tests\Feature;
-
-    use Tests\TestCase;
     use Illuminate\Foundation\Testing\WithoutMiddleware;
     use Illuminate\Foundation\Testing\DatabaseMigrations;
     use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -88,9 +81,8 @@ Another approach to resetting the database state is to wrap each test case in a 
          */
         public function testBasicExample()
         {
-            $response = $this->get('/');
-
-            // ...
+            $this->visit('/')
+                 ->see('Laravel 5');
         }
     }
 
@@ -210,7 +202,7 @@ You may also attach relationships to models using Closure attributes in your fac
         ];
     });
 
-These Closures also receive the evaluated attribute array of the factory that defines them:
+These Closures also receive the evaluated attribute array of the factory that contains them:
 
     $factory->define(App\Post::class, function ($faker) {
         return [

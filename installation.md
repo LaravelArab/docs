@@ -10,8 +10,6 @@
 <a name="installation"></a>
 ## Installation
 
-> {video} Are you a visual learner? Laracasts provides a [free, thorough introduction to Laravel](https://laracasts.com/series/laravel-from-scratch-2017) for newcomers to the framework. It's a great place to start your journey.
-
 <a name="server-requirements"></a>
 ### Server Requirements
 
@@ -37,7 +35,7 @@ Laravel utilizes [Composer](https://getcomposer.org) to manage its dependencies.
 
 First, download the Laravel installer using Composer:
 
-    composer global require "laravel/installer"
+    composer global require "laravel/installer" 
 
 Make sure to place the `$HOME/.composer/vendor/bin` directory (or the equivalent directory for your OS) in your $PATH so the `laravel` executable can be located by your system.
 
@@ -49,7 +47,7 @@ Once installed, the `laravel new` command will create a fresh Laravel installati
 
 Alternatively, you may also install Laravel by issuing the Composer `create-project` command in your terminal:
 
-    composer create-project --prefer-dist laravel/laravel blog
+    composer create-project --prefer-dist laravel/laravel blog "5.3.*"
 
 #### Local Development Server
 

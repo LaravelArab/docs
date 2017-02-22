@@ -57,7 +57,7 @@ Laravel includes a variety of global "helper" PHP functions. Many of these funct
 [base_path](#method-base-path)
 [config_path](#method-config-path)
 [database_path](#method-database-path)
-[mix](#method-mix)
+[elixir](#method-elixir)
 [public_path](#method-public-path)
 [resource_path](#method-resource-path)
 [storage_path](#method-storage-path)
@@ -129,7 +129,6 @@ Laravel includes a variety of global "helper" PHP functions. Many of these funct
 [redirect](#method-redirect)
 [request](#method-request)
 [response](#method-response)
-[retry](#method-retry)
 [session](#method-session)
 [value](#method-value)
 [view](#method-view)
@@ -475,12 +474,12 @@ The `database_path` function returns the fully qualified path to the application
 
     $path = database_path();
 
-<a name="method-mix"></a>
-#### `mix()` {#collection-method}
+<a name="method-elixir"></a>
+#### `elixir()` {#collection-method}
 
-The `mix` function gets the path to a [versioned Mix file](/docs/{{version}}/mix):
+The `elixir` function gets the path to a [versioned Elixir file](/docs/{{version}}/elixir):
 
-    mix($file);
+    elixir($file);
 
 <a name="method-public-path"></a>
 #### `public_path()` {#collection-method}
@@ -965,15 +964,6 @@ The `response` function creates a [response](/docs/{{version}}/responses) instan
     return response('Hello World', 200, $headers);
 
     return response()->json(['foo' => 'bar'], 200, $headers);
-
-<a name="method-retry"></a>
-#### `retry()` {#collection-method}
-
-The `retry` function attempts to execute the given callback until the given maximum attempt threshold is met. If the callback does not throw an exception, it's return value will be returned. If the callback throws an exception, it will automatically be retried. If the maximum attempt count is exceeded, the exception will be thrown:
-
-    return retry(5, function () {
-        // Attempt 5 times while resting 100ms in between attempts...
-    }, 100);
 
 <a name="method-session"></a>
 #### `session()` {#collection-method}

@@ -27,7 +27,6 @@
     - [Checking Scopes](#checking-scopes)
 - [Consuming Your API With JavaScript](#consuming-your-api-with-javascript)
 - [Events](#events)
-- [Testing](#testing)
 
 <a name="introduction"></a>
 ## Introduction
@@ -41,7 +40,7 @@ Laravel already makes it easy to perform authentication via traditional login fo
 
 To get started, install Passport via the Composer package manager:
 
-    composer require laravel/passport
+    composer require laravel/passport=~1.0
 
 Next, register the Passport service provider in the `providers` array of your `config/app.php` configuration file:
 
@@ -50,8 +49,6 @@ Next, register the Passport service provider in the `providers` array of your `c
 The Passport service provider registers its own database migration directory with the framework, so you should migrate your database after registering the provider. The Passport migrations will create the tables your application needs to store clients and access tokens:
 
     php artisan migrate
-
-> {note} If you are not going to use Passport's default migrations, you should call the `Passport::ignoreMigrations` method in the `register` method of your `AppServiceProvider`. You may export the default migrations using `php artisan vendor:publish --tag=passport-migrations`.
 
 Next, you should run the `passport:install` command. This command will create the encryption keys needed to generate secure access tokens. In addition, the command will create "personal access" and "password grant" clients which will be used to generate access tokens:
 
@@ -148,7 +145,7 @@ The published components will be placed in your `resources/assets/js/components`
         require('./components/passport/PersonalAccessTokens.vue')
     );
 
-After registering the components, make sure to run `npm run dev` to recompile your assets. Once you have recompiled your assets, you may drop the components into one of your application's templates to get started creating clients and personal access tokens:
+After registering the components, make sure to run `gulp` to recompile your assets. Once you have recompiled your assets, you may drop the components into one of your application's templates to get started creating clients and personal access tokens:
 
     <passport-clients></passport-clients>
     <passport-authorized-clients></passport-authorized-clients>
@@ -200,7 +197,7 @@ The simplest way to create a client is using the `passport:client` Artisan comma
 
 Since your users will not be able to utilize the `client` command, Passport provides a JSON API that you may use to create clients. This saves you the trouble of having to manually code controllers for creating, updating, and deleting clients.
 
-However, you will need to pair Passport's JSON API with your own frontend to provide a dashboard for your users to manage their clients. Below, we'll review all of the API endpoints for managing clients. For convenience, we'll use [Axios](https://github.com/mzabriskie/axios) to demonstrate making HTTP requests to the endpoints.
+However, you will need to pair Passport's JSON API with your own frontend to provide a dashboard for your users to manage their clients. Below, we'll review all of the API endpoints for managing clients. For convenience, we'll use [Vue](https://vuejs.org) to demonstrate making HTTP requests to the endpoints.
 
 > {tip} If you don't want to implement the entire client management frontend yourself, you can use the [frontend quickstart](#frontend-quickstart) to have a fully functional frontend in a matter of minutes.
 
@@ -208,7 +205,7 @@ However, you will need to pair Passport's JSON API with your own frontend to pro
 
 This route returns all of the clients for the authenticated user. This is primarily useful for listing all of the user's clients so that they may edit or delete them:
 
-    axios.get('/oauth/clients')
+    this.$http.get('/oauth/clients')
         .then(response => {
             console.log(response.data);
         });
@@ -224,7 +221,7 @@ When a client is created, it will be issued a client ID and client secret. These
         redirect: 'http://example.com/callback'
     };
 
-    axios.post('/oauth/clients', data)
+    this.$http.post('/oauth/clients', data)
         .then(response => {
             console.log(response.data);
         })
@@ -241,7 +238,7 @@ This route is used to update clients. It requires two pieces of data: the client
         redirect: 'http://example.com/callback'
     };
 
-    axios.put('/oauth/clients/' + clientId, data)
+    this.$http.put('/oauth/clients/' + clientId, data)
         .then(response => {
             console.log(response.data);
         })
@@ -253,7 +250,7 @@ This route is used to update clients. It requires two pieces of data: the client
 
 This route is used to delete clients:
 
-    axios.delete('/oauth/clients/' + clientId)
+    this.$http.delete('/oauth/clients/' + clientId)
         .then(response => {
             //
         });
@@ -462,7 +459,7 @@ Once you have created a personal access client, you may issue tokens for a given
 
 #### JSON API
 
-Passport also includes a JSON API for managing personal access tokens. You may pair this with your own frontend to offer your users a dashboard for managing personal access tokens. Below, we'll review all of the API endpoints for managing personal access tokens. For convenience, we'll use [Axios](https://github.com/mzabriskie/axios) to demonstrate making HTTP requests to the endpoints.
+Passport also includes a JSON API for managing personal access tokens. You may pair this with your own frontend to offer your users a dashboard for managing personal access tokens. Below, we'll review all of the API endpoints for managing personal access tokens. For convenience, we'll use [Vue](https://vuejs.org) to demonstrate making HTTP requests to the endpoints.
 
 > {tip} If you don't want to implement the personal access token frontend yourself, you can use the [frontend quickstart](#frontend-quickstart) to have a fully functional frontend in a matter of minutes.
 
@@ -470,7 +467,7 @@ Passport also includes a JSON API for managing personal access tokens. You may p
 
 This route returns all of the [scopes](#token-scopes) defined for your application. You may use this route to list the scopes a user may assign to a personal access token:
 
-    axios.get('/oauth/scopes')
+    this.$http.get('/oauth/scopes')
         .then(response => {
             console.log(response.data);
         });
@@ -479,7 +476,7 @@ This route returns all of the [scopes](#token-scopes) defined for your applicati
 
 This route returns all of the personal access tokens that the authenticated user has created. This is primarily useful for listing all of the user's token so that they may edit or delete them:
 
-    axios.get('/oauth/personal-access-tokens')
+    this.$http.get('/oauth/personal-access-tokens')
         .then(response => {
             console.log(response.data);
         });
@@ -493,7 +490,7 @@ This route creates new personal access tokens. It requires two pieces of data: t
         scopes: []
     };
 
-    axios.post('/oauth/personal-access-tokens', data)
+    this.$http.post('/oauth/personal-access-tokens', data)
         .then(response => {
             console.log(response.data.accessToken);
         })
@@ -505,7 +502,7 @@ This route creates new personal access tokens. It requires two pieces of data: t
 
 This route may be used to delete personal access tokens:
 
-    axios.delete('/oauth/personal-access-tokens/' + tokenId);
+    this.$http.delete('/oauth/personal-access-tokens/' + tokenId);
 
 <a name="protecting-routes"></a>
 ## Protecting Routes
@@ -623,18 +620,20 @@ Typically, if you want to consume your API from your JavaScript application, you
 
 This Passport middleware will attach a `laravel_token` cookie to your outgoing responses. This cookie contains an encrypted JWT that Passport will use to authenticate API requests from your JavaScript application. Now, you may make requests to your application's API without explicitly passing an access token:
 
-    axios.get('/user')
+    this.$http.get('/user')
         .then(response => {
             console.log(response.data);
         });
 
-When using this method of authentication, Axios will automatically send the `X-CSRF-TOKEN` header. In addition, the default Laravel JavaScript scaffolding instructs Axios to send the `X-Requested-With` header:
+When using this method of authentication, you will need to send the CSRF token with every request via the `X-CSRF-TOKEN` header. Laravel will automatically send this header if you are using the default [Vue](https://vuejs.org) configuration that is included with the framework:
 
-    window.axios.defaults.headers.common = {
-        'X-Requested-With': 'XMLHttpRequest',
-    };
+    Vue.http.interceptors.push((request, next) => {
+        request.headers.set('X-CSRF-TOKEN', Laravel.csrfToken);
 
-> {note} If you are using a different JavaScript framework, you should make sure it is configured to send the `X-CSRF-TOKEN` and `X-Requested-With` headers with every outgoing request.
+        next();
+    });
+
+> {note} If you are using a different JavaScript framework, you should make sure it is configured to send this header with every outgoing request.
 
 
 <a name="events"></a>
@@ -658,20 +657,3 @@ protected $listen = [
     ],
 ];
 ```
-
-<a name="testing"></a>
-## Testing
-
-Passport's `actingAs` method may be used to specify the currently authenticated user as well as its scopes. The first argument given to the `actingAs` method is the user instance and the second is an array of scopes that should be granted to the user's token:
-
-    public function testServerCreation()
-    {
-        Passport::actingAs(
-            factory(User::class)->create(),
-            ['create-servers']
-        );
-
-        $response = $this->post('/api/create-server');
-
-        $response->assertStatus(200);
-    }

@@ -3,7 +3,6 @@
 - [Accessing The Request](#accessing-the-request)
     - [Request Path & Method](#request-path-and-method)
     - [PSR-7 Requests](#psr7-requests)
-- [Input Trimming & Normalization](#input-trimming-and-normaliation)
 - [Retrieving Input](#retrieving-input)
     - [Old Input](#old-input)
     - [Cookies](#cookies)
@@ -131,13 +130,6 @@ Once you have installed these libraries, you may obtain a PSR-7 request by type-
     });
 
 > {tip} If you return a PSR-7 response instance from a route or controller, it will automatically be converted back to a Laravel response instance and be displayed by the framework.
-
-<a name="input-trimming-and-normaliation"></a>
-## Input Trimming & Normalization
-
-By default, Laravel includes the `TrimStrings` and `ConvertEmptyStringsToNull` middleware in your application's global middleware stack. These middleware are listed in the stack by the `App\Http\Kernel` class. These middleware will automatically trim all incoming string fields on the request, as well as convert any empty string fields to `null`. This allows you to not have to worry about these normalization concerns in your routes and controllers.
-
-If you would like to disable this behavior, you may remove the two middleware from your application's middleware stack by removing them from the `$middleware` property of your `App\Http\Kernel` class.
 
 <a name="retrieving-input"></a>
 ## Retrieving Input
@@ -267,7 +259,7 @@ If you would like to generate a `Symfony\Component\HttpFoundation\Cookie` instan
     return response('Hello World')->cookie($cookie);
 
 <a name="files"></a>
-## Files
+### Files
 
 <a name="retrieving-uploaded-files"></a>
 ### Retrieving Uploaded Files
@@ -309,7 +301,7 @@ There are a variety of other methods available on `UploadedFile` instances. Chec
 
 To store an uploaded file, you will typically use one of your configured [filesystems](/docs/{{version}}/filesystem). The `UploadedFile` class has a `store` method which will move an uploaded file to one of your disks, which may be a location on your local filesystem or even a cloud storage location like Amazon S3.
 
-The `store` method accepts the path where the file should be stored relative to the filesystem's configured root directory. This path should not contain a file name, since a unique ID will automatically be generated to serve as the file name.
+The `store` method accepts the path where the file should be stored relative to the filesystem's configured root directory. This path should not contain a file name, since a UUID will automatically be generated to serve as the file name.
 
 The `store` method also accepts an optional second argument for the name of the disk that should be used to store the file. The method will return the path of the file relative to the disk's root:
 
