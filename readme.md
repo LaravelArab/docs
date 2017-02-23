@@ -2,4 +2,4 @@
 
 ## إرشادات المساهمة
 
-If you are submitting documentation for the **current stable release**, submit it to the corresponding branch. For example, documentation for Laravel 5.1 would be submitted to the `5.3` branch. Documentation intended for the next release of Laravel should be submitted to the `master` branch.
+إذا كنت تسجل الوثائق في **النسخة المستقرة الحالية**, سجلها في الفرع المناسب. على سبيل المثال, وثائق لارافل `5.1` يجب تسجيلها في فرع `5.3`. الوثائق المقذمة للنسخة التالية من لارافل يجب تسجيلها في الفرع الرئيسي `master`.
