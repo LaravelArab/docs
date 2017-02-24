@@ -1,40 +1,42 @@
-# Routing
+# التوجيه
 
-- [Basic Routing](#basic-routing)
-- [Route Parameters](#route-parameters)
-    - [Required Parameters](#required-parameters)
-    - [Optional Parameters](#parameters-optional-parameters)
-    - [Regular Expression Constraints](#parameters-regular-expression-constraints)
-- [Named Routes](#named-routes)
-- [Route Groups](#route-groups)
-    - [Middleware](#route-group-middleware)
-    - [Namespaces](#route-group-namespaces)
-    - [Sub-Domain Routing](#route-group-sub-domain-routing)
-    - [Route Prefixes](#route-group-prefixes)
-- [Route Model Binding](#route-model-binding)
-    - [Implicit Binding](#implicit-binding)
-    - [Explicit Binding](#explicit-binding)
-- [Form Method Spoofing](#form-method-spoofing)
-- [Accessing The Current Route](#accessing-the-current-route)
+- [التوجيه الأساسي](#basic-routing)
+- [وسائط التوجيه](#route-parameters)
+    - [الوسائط المطلوبة](#required-parameters)
+    - [الوسائط الإختيارية](#parameters-optional-parameters)
+    - [قيود التعابير القياسية على الوسائط](#parameters-regular-expression-constraints)
+- [التوجيه المُسمى](#named-routes)
+- [مجموعات التوجيه](#route-groups)
+    - [الوسيط](#route-group-middleware)
+    - [المساحات](#route-group-namespaces)
+    - [توجيه النطاقات الفرعية](#route-group-sub-domain-routing)
+    - [بادئة التوجيه](#route-group-prefixes)
+- [نموذج موجه الربط](#route-model-binding)
+    - [الربط الضمني](#implicit-binding)
+    - [الربط الصريح](#explicit-binding)
+- [التحايل في طرق النماذج](#form-method-spoofing)
+- [الوصول للتوجيه الحالي](#accessing-the-current-route)
 
 <a name="basic-routing"></a>
-## Basic Routing
+## التوجيه الأساسي
 
-The most basic Laravel routes simply accept a URI and a `Closure`, providing a very simple and expressive method of defining routes:
+أبسط أشكال التوجيه في لارافيل هو استخدام المُسمى بشكل مباشر في الرابط للوصول إليه، لارافيل توفر طريقة بسيطة لتعريف التوجيهات:
 
     Route::get('foo', function () {
-        return 'Hello World';
+        return 'مرحباً بالعالم';
     });
 
-#### The Default Route Files
+#### ملفات التوجيه الإفتراضية
 
-All Laravel routes are defined in your route files, which are located in the `routes` directory. These files are automatically loaded by the framework. The `routes/web.php` file defines routes that are for your web interface. These routes are assigned the `web` middleware group, which provides features like session state and CSRF protection. The routes in `routes/api.php` are stateless and are assigned the `api` middleware group.
 
-For most applications, you will begin by defining routes in your `routes/web.php` file.
+جميع أوامر التوجيه في لارافيل تُعرف في ملفات التوجيه الموجودة في المجلد `routes`. هذه الملفات يتم تحميلها بشكل تلقائي بواسطة لارافيل. الملف `routes/web.php` يُعرف التوجيهات الخاصة بواجهة الويب -أي الوصول للتوجيه عبر المُتصفح-. هذه التوجيهات 
+هذه التوجيهات تستخدم مجموعة الوسيط `web`، والتي من شأنها التحقق من حالة الجلسة والحماية عبر `CSRF`. التوجيهات في الملف `routes/api.php` تسخدم مجموعة الوسيط `api`.
 
-#### Available Router Methods
+لأغلب التطبيقات، ستبدأ بتعريف التوجيهات في الملف `routes/web.php`.
 
-The router allows you to register routes that respond to any HTTP verb:
+#### طرق التوجيه المتاحة
+
+الموجه يُتيح لك تسجيل أي من طلبات الـ HTTP التالية:
 
     Route::get($uri, $callback);
     Route::post($uri, $callback);
@@ -43,7 +45,7 @@ The router allows you to register routes that respond to any HTTP verb:
     Route::delete($uri, $callback);
     Route::options($uri, $callback);
 
-Sometimes you may need to register a route that responds to multiple HTTP verbs. You may do so using the `match` method. Or, you may even register a route that responds to all HTTP verbs using the `any` method:
+أحياناً أنت بحاجة لتسجيل توجيه يرد على أكثر من نوع للطلبات في هذه الحالة يُمكن لك استخدام `match` لتحديد نوع طلب أو أو أكثر أو تقوم بتسجيل موجه للرد على جميع الطلبات باستخدام الطريقة `any`:
 
     Route::match(['get', 'post'], '/', function () {
         //
@@ -53,9 +55,9 @@ Sometimes you may need to register a route that responds to multiple HTTP verbs.
         //
     });
 
-#### CSRF Protection
+#### حماية CSRF
 
-Any HTML forms pointing to `POST`, `PUT`, or `DELETE` routes that are defined in the `web` routes file should include a CSRF token field. Otherwise, the request will be rejected. You can read more about CSRF protection in the [CSRF documentation](/docs/{{version}}/csrf):
+أي نموذج HTML تكون طرق الإرسال هي إما `POST` أو `PUT` أو `DELETE`، التوجيهات المُعرف في `web` يجب أن تحتوي على حقل رمز CSRF ضمن عناصر النموذج، بخلاف هذا سيتم رفض الطلب. تستطيع أن تقرأ أكثر عن حماية CSRF في [CSRF توثيق](/docs/{{version}}/csrf):
 
     <form method="POST" action="/profile">
         {{ csrf_field() }}
@@ -63,27 +65,27 @@ Any HTML forms pointing to `POST`, `PUT`, or `DELETE` routes that are defined in
     </form>
 
 <a name="route-parameters"></a>
-## Route Parameters
+## وسائط التوجيه
 
 <a name="required-parameters"></a>
-### Required Parameters
+### الوسائط المطلوبة
 
-Of course, sometimes you will need to capture segments of the URI within your route. For example, you may need to capture a user's ID from the URL. You may do so by defining route parameters:
+بالطبع، أحياناً أنت بحاجة للوصول لبعض أجزاء الرابط من خلال الموجه. كمثال، أنت بحاجة للوصول إلى مُعرف المُستخدم ID من الرابط. ستقوم بتعريف وسيط عبارة عن مُعرف المُستخدم في الموجه كالتالي:
 
     Route::get('user/{id}', function ($id) {
         return 'User '.$id;
     });
 
-You may define as many route parameters as required by your route:
+أنت بحاجة لتعريف العديد من الوسائط في التوجيه وتكون جميعها مطلوبه لإتمام التوجيه ستكون على النحو التالي:
 
     Route::get('posts/{post}/comments/{comment}', function ($postId, $commentId) {
         //
     });
 
-Route parameters are always encased within `{}` braces and should consist of alphabetic characters. Route parameters may not contain a `-` character. Use an underscore (`_`) instead.
+وسائط التوجيه دائماً توضع بين الأقواس المعكوفة `{}` ويجب أن تتكون من الحروف. وسائط التوجيه يجب ألا تحتوي على رمز `-` ولكن يمكنك استخدام `_`.
 
 <a name="parameters-optional-parameters"></a>
-### Optional Parameters
+### الوسائط الإختيارية
 
 Occasionally you may need to specify a route parameter, but make the presence of that route parameter optional. You may do so by placing a `?` mark after the parameter name. Make sure to give the route's corresponding variable a default value:
 
@@ -227,13 +229,13 @@ When injecting a model ID to a route or controller action, you will often query 
 <a name="implicit-binding"></a>
 ### Implicit Binding
 
-Laravel automatically resolves Eloquent models defined in routes or controller actions whose variable names match a route segment name. For example:
+Laravel automatically resolves Eloquent models defined in routes or controller actions whose type-hinted variable names match a route segment name. For example:
 
     Route::get('api/users/{user}', function (App\User $user) {
         return $user->email;
     });
 
-In this example, since the Eloquent `$user` variable defined on the route matches the `{user}` segment in the route's URI, Laravel will automatically inject the model instance that has an ID matching the corresponding value from the request URI. If a matching model instance is not found in the database, a 404 HTTP response will automatically be generated.
+Since the `$user` variable is type-hinted as the `App\User` Eloquent model and the variable name matches the `{user}` URI segment, Laravel will automatically inject the model instance that has an ID matching the corresponding value from the request URI. If a matching model instance is not found in the database, a 404 HTTP response will automatically be generated.
 
 #### Customizing The Key Name
 
