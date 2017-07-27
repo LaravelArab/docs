@@ -1,21 +1,21 @@
-# Installation
+# التنصيب
 
-- [Installation](#installation)
-    - [Server Requirements](#server-requirements)
-    - [Installing Laravel](#installing-laravel)
-    - [Configuration](#configuration)
-- [Web Server Configuration](#web-server-configuration)
-    - [Pretty URLs](#pretty-urls)
+- [التنصيب](#installation)
+    - [متطلبات الخادم](#server-requirements)
+    - [تنصيب لارفيل](#installing-laravel)
+    - [الإعداد](#configuration)
+- [إعداد خادم الويب](#web-server-configuration)
+    - [عناوين انترنت جميلة](#pretty-urls)
 
 <a name="installation"></a>
-## Installation
+## التنصيب
 
-> {video} Are you a visual learner? Laracasts provides a [free, thorough introduction to Laravel](https://laracasts.com/series/laravel-from-scratch-2017) for newcomers to the framework. It's a great place to start your journey.
+> {video} هل انت متعلم بالمشاهدة ؟ لاراكاست يوفر  [مجانا,مقدمة شاملة للارافيل](https://laracasts.com/series/laravel-from-scratch-2017) للقادمين الجدد لاطار العمل. انها مكان عظيم لبدء رحلتك
 
 <a name="server-requirements"></a>
-### Server Requirements
+### متطلبات الخادم
 
-The Laravel framework has a few system requirements. Of course, all of these requirements are satisfied by the [Laravel Homestead](/docs/{{version}}/homestead) virtual machine, so it's highly recommended that you use Homestead as your local Laravel development environment.
+اطار العمل لارافيل لديه القليل من متطلبات النظام . طبعا , جميع هذه المتطلبات تصلح ل [لارافيل هومستيد](/docs/{{version}}/homestead) الآلة الإفتراضية, لذلك ينصح بشدة ان تستخدم هومستيد كبيئة تطوير لارفيل محلية خاصة بك.
 
 However, if you are not using Homestead, you will need to make sure your server meets the following requirements:
 
@@ -29,11 +29,11 @@ However, if you are not using Homestead, you will need to make sure your server 
 </div>
 
 <a name="installing-laravel"></a>
-### Installing Laravel
+### تنصيب لارفيل
 
 Laravel utilizes [Composer](https://getcomposer.org) to manage its dependencies. So, before using Laravel, make sure you have Composer installed on your machine.
 
-#### Via Laravel Installer
+#### عن طريق مثبت لارافيل
 
 First, download the Laravel installer using Composer:
 
