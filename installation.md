@@ -17,7 +17,7 @@
 
 اطار العمل لارافيل لديه القليل من متطلبات النظام . طبعا , جميع هذه المتطلبات تصلح ل [لارافيل هومستيد](/docs/{{version}}/homestead) الآلة الإفتراضية, لذلك ينصح بشدة ان تستخدم هومستيد كبيئة تطوير لارفيل محلية خاصة بك.
 
-However, if you are not using Homestead, you will need to make sure your server meets the following requirements:
+ومع ذلك، إذا كنت لا تستخدم هومستيد، فستحتاج إلى التأكد من أن الخادم يتوافق مع المتطلبات التالية :
 
 <div class="content-list" markdown="1">
 - PHP >= 5.6.4
@@ -31,33 +31,33 @@ However, if you are not using Homestead, you will need to make sure your server 
 <a name="installing-laravel"></a>
 ### تنصيب لارفيل
 
-Laravel utilizes [Composer](https://getcomposer.org) to manage its dependencies. So, before using Laravel, make sure you have Composer installed on your machine.
+لارافيل يستخدم [كمبوزر](https://getcomposer.org)لإدارة تبعياته. لذلك,  قبل استخدام لارافيل, تأكد من أن لديك الملحن المثبتة على الجهاز الخاص بك
 
 #### عن طريق مثبت لارافيل
 
-First, download the Laravel installer using Composer:
+أولا، قم بتحميل مثبت لارافيل باستخدام كمبوزر :
 
     composer global require "laravel/installer"
+تأكد من وضع دليل`$HOME/.composer/vendor/bin` (أو الدليل المكافئ لنظام التشغيل الخاص بك) في $PATH يكون `لارافيل` التتنفيذي موجود في النظام الخاص بك
 
-Make sure to place the `$HOME/.composer/vendor/bin` directory (or the equivalent directory for your OS) in your $PATH so the `laravel` executable can be located by your system.
-
-Once installed, the `laravel new` command will create a fresh Laravel installation in the directory you specify. For instance, `laravel new blog` will create a directory named `blog` containing a fresh Laravel installation with all of Laravel's dependencies already installed:
+وبمجرد التنصيب، فإن الأمر `laravel new` سوف يقوم بعمل تثبيت لارافيل جديد في الدليل الذي قمت بتحديده. على سبيل المثال `laravel new blog` سوف يقوم بعمل دليل جديد باسم `blog` يحتوى تثبيت لارافيل جديد مع جميع تبعيات لارافيل مثبتة
 
     laravel new blog
 
-#### Via Composer Create-Project
+#### بواسطة Composer Create-Project
 
-Alternatively, you may also install Laravel by issuing the Composer `create-project` command in your terminal:
+بدلا من ذلك، يمكنك أيضا تثبيت لارافيل عن طريق تنفيذ `create-project` الأمر في  الطرفية :
 
     composer create-project --prefer-dist laravel/laravel blog
 
 #### خادم التطوير المحلي
 
-If you have PHP installed locally and you would like to use PHP's built-in development server to serve your application, you may use the `serve` Artisan command. This command will start a development server at `http://localhost:8000`:
+إذا كان لديك PHP مثبت محليا وكنت ترغب في استخدام PHP المدمج في خادم التطوير لخدمة التطبيق الخاص بك، يمكنك استخدام  `serve` أرتسن أمر . سيبدأ هذا الأمر خادم التطوير في `http://localhost:8000`
 
     php artisan serve
 
-Of course, more robust local development options are available via [Homestead](/docs/{{version}}/homestead) and [Valet](/docs/{{version}}/valet).
+وبطبيعة الحال ،  تتوفر خيارات التطوير المحلية الأكثر قوة عبر  [هومستيد](/docs/{{version}}/homestead)  و [فاليت](/docs/{{version}}/valet)
+
 
 <a name="configuration"></a>
 ### الإعداد
