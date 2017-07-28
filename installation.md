@@ -26,7 +26,7 @@ However, if you are not using Homestead, you will need to make sure your server 
 - Mbstring PHP Extension
 - Tokenizer PHP Extension
 - XML PHP Extension
-</div>
+  </div>
 
 <a name="installing-laravel"></a>
 ### تنصيب لارفيل
@@ -51,7 +51,7 @@ Alternatively, you may also install Laravel by issuing the Composer `create-proj
 
     composer create-project --prefer-dist laravel/laravel blog
 
-#### Local Development Server
+#### خادم التطوير المحلي
 
 If you have PHP installed locally and you would like to use PHP's built-in development server to serve your application, you may use the `serve` Artisan command. This command will start a development server at `http://localhost:8000`:
 
@@ -60,13 +60,13 @@ If you have PHP installed locally and you would like to use PHP's built-in devel
 Of course, more robust local development options are available via [Homestead](/docs/{{version}}/homestead) and [Valet](/docs/{{version}}/valet).
 
 <a name="configuration"></a>
-### Configuration
+### الإعداد
 
-#### Public Directory
+#### الدليل العام
 
 After installing Laravel, you should configure your web server's document / web root to be the `public` directory. The `index.php` in this directory serves as the front controller for all HTTP requests entering your application.
 
-#### Configuration Files
+#### إعداد الملفات
 
 All of the configuration files for the Laravel framework are stored in the `config` directory. Each option is documented, so feel free to look through the files and get familiar with the options available to you.
 
@@ -74,31 +74,31 @@ All of the configuration files for the Laravel framework are stored in the `conf
 
 After installing Laravel, you may need to configure some permissions. Directories within the `storage` and the `bootstrap/cache` directories should be writable by your web server or Laravel will not run. If you are using the [Homestead](/docs/{{version}}/homestead) virtual machine, these permissions should already be set.
 
-#### Application Key
+#### مفتاح التطبيق
 
 The next thing you should do after installing Laravel is set your application key to a random string. If you installed Laravel via Composer or the Laravel installer, this key has already been set for you by the `php artisan key:generate` command.
 
 Typically, this string should be 32 characters long. The key can be set in the `.env` environment file. If you have not renamed the `.env.example` file to `.env`, you should do that now. **If the application key is not set, your user sessions and other encrypted data will not be secure!**
 
-#### Additional Configuration
+#### إعداد إضافي
 
 Laravel needs almost no other configuration out of the box. You are free to get started developing! However, you may wish to review the `config/app.php` file and its documentation. It contains several options such as `timezone` and `locale` that you may wish to change according to your application.
 
 You may also want to configure a few additional components of Laravel, such as:
 
 <div class="content-list" markdown="1">
-- [Cache](/docs/{{version}}/cache#configuration)
-- [Database](/docs/{{version}}/database#configuration)
-- [Session](/docs/{{version}}/session#configuration)
-</div>
+- [الكاش](/docs/{{version}}/cache#configuration)
+- [قاعدة البيانات](/docs/{{version}}/database#configuration)
+- [الجلسة](/docs/{{version}}/session#configuration)
+  </div>
 
 <a name="web-server-configuration"></a>
 ## Web Server Configuration
 
 <a name="pretty-urls"></a>
-### Pretty URLs
+### عناوين انترنت جميلة
 
-#### Apache
+#### أباتشي
 
 Laravel includes a `public/.htaccess` file that is used to provide URLs without the `index.php` front controller in the path. Before serving Laravel with Apache, be sure to enable the `mod_rewrite` module so the `.htaccess` file will be honored by the server.
 
@@ -106,17 +106,17 @@ If the `.htaccess` file that ships with Laravel does not work with your Apache i
 
     Options +FollowSymLinks
     RewriteEngine On
-
+    
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 
-#### Nginx
+#### إنجن إكس
 
-If you are using Nginx, the following directive in your site configuration will direct all requests to the `index.php` front controller:
+إذا كنت تستخدم إنجن إكس , فإن التوجيه التالي في إعداد موقعك سيقوم بتوجية جميع الطلبات الى  وحدة التحكم الامامية : `index.php`
 
     location / {
         try_files $uri $uri/ /index.php?$query_string;
     }
 
-Of course, when using [Homestead](/docs/{{version}}/homestead) or [Valet](/docs/{{version}}/valet), pretty URLs will be automatically configured.
+.طبعا, عند استخدام  [هومستيد](/docs/{{version}}/homestead) او [فاليت ](/docs/{{version}}/valet), سيتم إعداد عناوين الانترنت الجميلة تلقائيا
