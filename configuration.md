@@ -17,7 +17,7 @@
 
 غالبا ما يكون من المفيد الحصول على قيم إعداد مختلفة استنادا إلى البيئة التي يتم تشغيل التطبيق فيها. على سبيل المثال، قد ترغب باستخدام  برنامج تشغيل ذاكرة التخزين المؤقت محلي مختلف عن ما تستخدم  في خادوم الإنتاج الخاص بك
 
-لجعل هذا مربط الفرس ، لارافيل يستخدم مكتبة  [دوت انف](https://github.com/vlucas/phpdotenv) من فانس لوكاس.عند تنصيب نسخة لارافيل جديدة، سوف يحتوي دليل الجذر الخاص بتطبيقك على ملف `.env.example`  اذا قمت بتنصيب لارافيل باستخدام الملحن سوف يتم تلقائيا اعادة تسيمة هذا الملف الى  `.env` وإلا، يجب إعادة تسمية الملف يدويا . 
+لجعل هذا مهمه سهله للغايه ، لارافيل يستخدم مكتبة  [دوت انف](https://github.com/vlucas/phpdotenv) من فانس لوكاس.عند تنصيب نسخة لارافيل جديدة، سوف يحتوي دليل الجذر الخاص بتطبيقك على ملف `.env.example`  اذا قمت بتنصيب لارافيل باستخدام الملحن سوف يتم تلقائيا اعادة تسيمة هذا الملف الى  `.env` وإلا، يجب إعادة تسمية الملف يدويا . 
 
 > {tip} 
 > بامكانك ايضا عمل ملف  `.env.testing`. هذا الملف سوف يتجاوز القيم من ملف `.env` عند تشغيل وحدة اختبار بي اتش بي او تنفيذ امر ارتسن مع الخيار `--env=testing` .
@@ -32,16 +32,16 @@
 
 يجب ألا يضاف ملف `.env`  لنظام إدارة الشيفرة المصدرية  الخاص بتطبيقك ، حيث أن كل مطور / خادوم يستخدم التطبيق الخاص بك قد يتطلب إعداد بيئة مختلفة .
 
-If you are developing with a team, you may wish to continue including a `.env.example` file with your application. By putting place-holder values in the example configuration file, other developers on your team can clearly see which environment variables are needed to run your application.
+إذا كنت تتطور مع فريق، فقد ترغب في الاستمرار في تضمين ملف  `.env.example` مع تطبيقك. من خلال وضع قيم الرمز البديل في  ملف الإعداد المثال، يمكن لمطوري البرامج الآخرين في فريقك معرفة متغيرات البيئة المطلوبة لتشغيل التطبيق.
 
 <a name="determining-the-current-environment"></a>
 ### تحديد البيئة الحالية
 
-The current application environment is determined via the `APP_ENV` variable from your `.env` file. You may access this value via the `environment` method on the `App` [facade](/docs/{{version}}/facades):
+يتم تحديد بيئة التطبيق الحالية عبر متغير`APP_ENV` من ملف `.env` الخاص بك. يمكنك الوصول إلى هذه القيمة عبر الطريقة `environment` في `App` [واجهة](/docs/{{version}}/facades) :
 
     $environment = App::environment();
 
-You may also pass arguments to the `environment` method to check if the environment matches a given value. The method will return `true` if the environment matches any of the given values:
+يمكنك أيضا تمرير وسيطات إلى الطريقة  `environment` للتحقق مما إذا كانت البيئة تطابق قيمة معينة. ستعود الطريقة ب `true` إذا تطابقت البيئة مع أي من القيم المعطاة:
 
     if (App::environment('local')) {
         // The environment is local
@@ -54,47 +54,47 @@ You may also pass arguments to the `environment` method to check if the environm
 <a name="accessing-configuration-values"></a>
 ## الوصول إلى قيم الإعداد
 
-You may easily access your configuration values using the global `config` helper function from anywhere in your application. The configuration values may be accessed using "dot" syntax, which includes the name of the file and option you wish to access. A default value may also be specified and will be returned if the configuration option does not exist:
+يمكنك الوصول بسهولة إلى قيم الإعداد باستخدام الدالة العالمية المساعدة `config` من أي مكان في التطبيق. يمكن الوصول إلى قيم الإعداد باستخدام بناء الجملة "نقطة"، والذي يتضمن اسم الملف والخيار الذي ترغب في الوصول إليه. قد يتم أيضا تحديد قيمة افتراضية وسيتم إرجاعها إذا كان خيار الإعداد غير موجود :
 
     $value = config('app.timezone');
 
-To set configuration values at runtime, pass an array to the `config` helper:
+لتعيين قيم الإعداد عند وقت التشغيل، قم بتمرير مصفوفة إلى المساعد `config`:
 
     config(['app.timezone' => 'America/Chicago']);
 
 <a name="configuration-caching"></a>
 ## التخزين المؤقت للإعداد
 
-To give your application a speed boost, you should cache all of your configuration files into a single file using the `config:cache` Artisan command. This will combine all of the configuration options for your application into a single file which will be loaded quickly by the framework.
+لتسريع التطبيق الخاص ، يجب التخزين المؤقت لكافة ملفات الإعداد الخاص بك في ملف واحد باستخدام أمر ارتسن `config:cache` هذا سوف يقوم بجمع كل خيارات الإعداد للتطبيق الخاص بك في ملف واحد والتي سيتم تحميلها بسرعة من قبل الإطار.
 
-You should typically run the `php artisan config:cache` command as part of your production deployment routine. The command should not be run during local development as configuration options will frequently need to be changed during the course of your application's development.
+يجب عادة تشغيل الأمر `php artisan config:cache` كجزء من روتين تطوير الإنتاج الخاص بك. لا يجب تشغيل الأمر أثناء التطوير المحلي حيث إن خيارات الإعداد غالبا ما تحتاج إلى تغيير أثناء تطوير التطبيق الخاص بك.
 
-> {note} If you execute the `config:cache` command during your deployment process, you should be sure that you are only calling the `env` function from within your configuration files.
+> {note} في حالة تنفيذ الأمر `config:cache` أثناء عملية التطوير، يجب أن تكون متأكدا من أنك تستدعي الدالة `env` من داخل ملفات الإعداد فقط.
 
 <a name="maintenance-mode"></a>
 ## نمط الصيانة
 
-When your application is in maintenance mode, a custom view will be displayed for all requests into your application. This makes it easy to "disable" your application while it is updating or when you are performing maintenance. A maintenance mode check is included in the default middleware stack for your application. If the application is in maintenance mode, a `MaintenanceModeException` will be thrown with a status code of 503.
 
-To enable maintenance mode, simply execute the `down` Artisan command:
+عندما يكون التطبيق في نمط الصيانة، سيتم عرض طريقة عرض مخصصة لجميع الطلبات في التطبيق الخاص بك. هذا يجعل من السهل "تعطيل" التطبيق الخاص بك بينما يتم التحديث أو عند إجراء الصيانة. يتم تضمين الاختيار نمط الصيانة في كومة الوسيطة الافتراضية للتطبيق الخاص بك. إذا كان التطبيق في نمط الصيانة، سيتم طرح `MaintenanceModeException` مع رمز حالة 503.
+
+لتمكين نمط الصيانة، ببساطة قم بتنفيذ امر ارتسن `down`:
 
     php artisan down
-
-You may also provide `message` and `retry` options to the `down` command. The `message` value may be used to display or log a custom message, while the `retry` value will be set as the `Retry-After` HTTP header's value:
+يمكنك أيضا تقديم خيار `message` و `retry` إلى الأمر `down`. يتم استخدام قيمة  `message`  لعرض أو تسجيل رسالة مخصصة، في حين سيتم تعيين قيمة `retry` المحاولة كقيمة رأس `Retry-After`  إتش تي تي بي :
 
     php artisan down --message="Upgrading Database" --retry=60
 
-To disable maintenance mode, use the `up` command:
+لتعطيل وضع الصيانة، استخدم الأمر `up`:
 
     php artisan up
 #### القالب المسؤول عن نمط الصيانة
 
-The default template for maintenance mode responses is located in `resources/views/errors/503.blade.php`. You are free to modify this view as needed for your application.
+القالب الافتراضي لاستجابات نمط الصيانة  في `resources/views/errors/503.blade.php` بامكانك تعديل هذا العرض حسب الحاجة لتطبيقك.
 
 #### نمط الصيانة وقوائم الإنتظار
 
-While your application is in maintenance mode, no [queued jobs](/docs/{{version}}/queues) will be handled. The jobs will continue to be handled as normal once the application is out of maintenance mode.
+في حين أن التطبيق الخاص بك هو في نمط الصيانة، لايتم التعامل مع  [وظائف في قائمة الانتظار](/docs/{{version}}/queues) . وسوف يستمر  التعامل معها كالمعتاد بمجرد  ان يخرج التطبيق من نمط الصيانة .
 
 #### بدائل لنمط الصيانة
 
-Since maintenance mode requires your application to have several seconds of downtime, consider alternatives like [Envoyer](https://envoyer.io) to accomplish zero-downtime deployment with Laravel.
+بما ان  وضع الصيانة يتطلب  ان يتوقف التطبيق لديك لعدة ثوان، وبالنظر الى البدائل مثل [انفوير](https://envoyer.io) لإنجاز تطوير بدون توقف  مع لارافيل.
