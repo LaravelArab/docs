@@ -1,23 +1,23 @@
-# Installation
+# التنصيب
 
-- [Installation](#installation)
-    - [Server Requirements](#server-requirements)
-    - [Installing Laravel](#installing-laravel)
-    - [Configuration](#configuration)
-- [Web Server Configuration](#web-server-configuration)
-    - [Pretty URLs](#pretty-urls)
+- [التنصيب](#installation)
+    - [متطلبات الخادوم](#server-requirements)
+    - [تـنصيب لارفيل](#installing-laravel)
+    - [الإعداد](#configuration)
+- [إعداد خادوم الويب](#web-server-configuration)
+    - [عناوين أنترنت جميلة](#pretty-urls)
 
 <a name="installation"></a>
-## Installation
+## التنصيب
 
-> {video} Are you a visual learner? Laracasts provides a [free, thorough introduction to Laravel](https://laracasts.com/series/laravel-from-scratch-2017) for newcomers to the framework. It's a great place to start your journey.
+> {video} هل أنت متعلم بالمشاهدة؟ لاراكاست يوفر [مجانا، مقدمة شاملة للارافيل](https://laracasts.com/series/laravel-from-scratch-2017) للقادمين الجدد لإطار العمل. إنه مكان عظيم لبدء رحلتك
 
 <a name="server-requirements"></a>
-### Server Requirements
+### متطلبات الخادوم
 
-The Laravel framework has a few system requirements. Of course, all of these requirements are satisfied by the [Laravel Homestead](/docs/{{version}}/homestead) virtual machine, so it's highly recommended that you use Homestead as your local Laravel development environment.
+متطلبات النظام لإطار العمل لارافيل قليلة. طبعا، جميع هذه المتطلبات تصلح للآلة الإفتراضية [لارافيل هومستيد](/docs/{{version}}/homestead)، لذلك ينصح بشدة أن تستخدم هومستيد بيئةَ تطوير لارفيل محلية خاصة بك.
 
-However, if you are not using Homestead, you will need to make sure your server meets the following requirements:
+ومع ذلك، إذا كنت لا تستخدم هومستيد، فستحتاج إلى التأكد من أن الخادوم يتوافق مع المتطلبات التالية:
 
 <div class="content-list" markdown="1">
 - PHP >= 5.6.4
@@ -26,97 +26,98 @@ However, if you are not using Homestead, you will need to make sure your server 
 - Mbstring PHP Extension
 - Tokenizer PHP Extension
 - XML PHP Extension
-</div>
+  </div>
 
 <a name="installing-laravel"></a>
-### Installing Laravel
+### تنصيب لارفيل
 
-Laravel utilizes [Composer](https://getcomposer.org) to manage its dependencies. So, before using Laravel, make sure you have Composer installed on your machine.
+لارافيل يستخدم [المُـلَحِّن](https://getcomposer.org) لإدارة تبعياته. لذلك، قبل استخدام لارافيل، تأكد من أن المُلَحِّن (composer) مُثَـبَّـتٌ على جهازك.
 
-#### Via Laravel Installer
+#### عن طريق مُثَبِّـت لارافيل
 
-First, download the Laravel installer using Composer:
+أولا، قم بتحميل مثبت لارافيل باستخدام الملحن:
 
     composer global require "laravel/installer"
+تأكد من وضع دليل `$HOME/.composer/vendor/bin` (أو الدليل المكافئ لنظام التشغيل الخاص بك) في $PATH لتمكن نظامك من العثور على الأمر التنفيذي `laravel`.
 
-Make sure to place the `$HOME/.composer/vendor/bin` directory (or the equivalent directory for your OS) in your $PATH so the `laravel` executable can be located by your system.
-
-Once installed, the `laravel new` command will create a fresh Laravel installation in the directory you specify. For instance, `laravel new blog` will create a directory named `blog` containing a fresh Laravel installation with all of Laravel's dependencies already installed:
+حالما يتم التنصيب، سيقوم الأمر `laravel new` بتـثبيت مشروع لارافيل جديد في الدليل الذي قمت بتحديده. على سبيل المثال `laravel new blog` سيقوم بإنشاء دليل جديد باسم `blog` يحتوي مشروعَ لارافيل جديدا مع جميع تبعياته.
 
     laravel new blog
 
-#### Via Composer Create-Project
+#### بواسطة Composer Create-Project
 
-Alternatively, you may also install Laravel by issuing the Composer `create-project` command in your terminal:
+بدلا من ذلك، يمكنك أيضا تثبيت لارافيل عن طريق تنفيذ الأمر `create-project` في الطرفية:
 
     composer create-project --prefer-dist laravel/laravel blog
 
-#### Local Development Server
+#### خادوم التطوير المحلي
 
-If you have PHP installed locally and you would like to use PHP's built-in development server to serve your application, you may use the `serve` Artisan command. This command will start a development server at `http://localhost:8000`:
+إذا كان PHP مثبتا محليا وكنت ترغب في استخدام خادوم التطوير المُدْمج في PHP لخدمة تطبيقك، يمكنك استخدام الأمر الحِرَفي (Artisan command) `serve`. سيبدأ هذا الأمر في تشغيل خادوم التطوير على `http://localhost:8000`:
 
     php artisan serve
 
-Of course, more robust local development options are available via [Homestead](/docs/{{version}}/homestead) and [Valet](/docs/{{version}}/valet).
+وبطبيعة الحال، خيارات التطوير المحلية الأكثر قوة مُتَاحة عبر [هومستيد](/docs/{{version}}/homestead) و[فاليت](/docs/{{version}}/valet)
+
 
 <a name="configuration"></a>
-### Configuration
+### الإعداد
 
-#### Public Directory
+#### الدليل العام
 
-After installing Laravel, you should configure your web server's document / web root to be the `public` directory. The `index.php` in this directory serves as the front controller for all HTTP requests entering your application.
+بعد تثبيت لارافيل، يجب عليك إعداد جذر الويب / وثيقة خادوم الويب الخاص بك ليكون الدليل `public`. يعمل `index.php` في هذا الدليل كمتحكم أمامي لجميع طلبات HTTP التي تدخل تطبيقك.
 
-#### Configuration Files
+#### إعداد الملفات
 
-All of the configuration files for the Laravel framework are stored in the `config` directory. Each option is documented, so feel free to look through the files and get familiar with the options available to you.
+يتم تخزين كافة ملفات الإعداد لإطار لارافيل في دليل `config`. يتم توثيق كل خيار، لذلك لا تـتردد في إلقاء نظرة على ملفات الإعداد لتكون على دراية بالخيارات المتاحة.
 
-#### Directory Permissions
+#### تصريحات الدليل
 
-After installing Laravel, you may need to configure some permissions. Directories within the `storage` and the `bootstrap/cache` directories should be writable by your web server or Laravel will not run. If you are using the [Homestead](/docs/{{version}}/homestead) virtual machine, these permissions should already be set.
+بعد تثبيت لارافيل، قد تحتاج إلى إعداد بعض التصريحات. الدلائل داخل `storage` ودليل `bootstrap/cache` يجب أن تكون قابلة للكتابة من قبل خادوم الويب الخاص بك وإلا فلن يتم تشغيل لارافيل. إذا كنت تستخدم الآلة الإفتراضية [هومستيد](/docs/{{version}}/homestead)، تكون جميع هذه التصريحات مُفَعَّلة.
 
-#### Application Key
+#### مفتاح التطبيق
 
-The next thing you should do after installing Laravel is set your application key to a random string. If you installed Laravel via Composer or the Laravel installer, this key has already been set for you by the `php artisan key:generate` command.
+ بعد تثبيت لارافيل يجب تعيين مفتاح تطبيقك الذي يُمَثِّـل نصا عشوائيا. إذا قمت بتثبيت لارافيل عبر الملحن (composer) أو مثبت لارافيل، يتم تعيين هذا المفتاح تلقائيا عبر أمر `php artisan key:generate`.
 
-Typically, this string should be 32 characters long. The key can be set in the `.env` environment file. If you have not renamed the `.env.example` file to `.env`, you should do that now. **If the application key is not set, your user sessions and other encrypted data will not be secure!**
+عادة، يجب أن يكون هذا النص متكونا من 32 حرفا. يمكن تعيين المفتاح في ملف البيئة `.env`. إذا لم تكن قد قمت بتسمية الملف `.env.example` بـ `.env`، فعليك إجراء ذلك الآن. **إذا لم يتم تعيين مفتاح التطبيق، جلسات المستخدم الخاصة بك وغيرها من البيانات المشفرة لن تكون آمنة** !
 
-#### Additional Configuration
+#### إعداد إضافي
 
-Laravel needs almost no other configuration out of the box. You are free to get started developing! However, you may wish to review the `config/app.php` file and its documentation. It contains several options such as `timezone` and `locale` that you may wish to change according to your application.
+لارافيل لا يحتاج تقريبا أي إعداد آخر. تستطيع الآن البدء بالتطوير! ومع ذلك، قد ترغب في مراجعة ملف `config/app.php` ووثائقه الذي يحتوي على عدة خيارات مثل `timezone` و`locale` التي قد ترغب في تغييرها وفقا تطبيقك.
 
-You may also want to configure a few additional components of Laravel, such as:
+قد تحتاج أيضا إلى إعداد بعض مكونات إضافية من لارافيل، مثل:
 
 <div class="content-list" markdown="1">
-- [Cache](/docs/{{version}}/cache#configuration)
-- [Database](/docs/{{version}}/database#configuration)
-- [Session](/docs/{{version}}/session#configuration)
-</div>
+- [ذاكرة التخزين المؤقتة](/docs/{{version}}/cache#configuration)
+- [قاعدة البيانات](/docs/{{version}}/database#configuration)
+- [الجلسة](/docs/{{version}}/session#configuration)
+  </div>
 
 <a name="web-server-configuration"></a>
-## Web Server Configuration
+## إعداد خادوم الويب
 
 <a name="pretty-urls"></a>
-### Pretty URLs
+### عناوين أنترنت جميلة
 
-#### Apache
+#### أباتشي
 
-Laravel includes a `public/.htaccess` file that is used to provide URLs without the `index.php` front controller in the path. Before serving Laravel with Apache, be sure to enable the `mod_rewrite` module so the `.htaccess` file will be honored by the server.
+يتضمن لارافيل ملف `public/.htaccess` الذي يتم استخدامه لتوفير عناوين أنترنت دون وحدة التحكم الأمامية `index.php` في المسار. قبل أن يعمل لارافيل مع أباتشي، تأكد من تمكين وحدة `mod_rewrite` بحيث سيتم «تكريم» ملف `.htaccess` من قبل الخادوم.
 
-If the `.htaccess` file that ships with Laravel does not work with your Apache installation, try this alternative:
+إذا كان الملف `.htaccess` الذي يكون مع لارافيل أصلا لا يعمل مع تثبيت أباتشي، قم بتجربة هذا البديل:
+
 
     Options +FollowSymLinks
     RewriteEngine On
-
+    
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 
-#### Nginx
+#### إنجن إكس
 
-If you are using Nginx, the following directive in your site configuration will direct all requests to the `index.php` front controller:
+إذا كنت تستخدم إنجن إكس، فإن التوجيه التالي في إعداد موقعك سيقوم بتوجية جميع الطلبات إلى وحدة التحكم الأمامية: `index.php`
 
     location / {
         try_files $uri $uri/ /index.php?$query_string;
     }
 
-Of course, when using [Homestead](/docs/{{version}}/homestead) or [Valet](/docs/{{version}}/valet), pretty URLs will be automatically configured.
+طبعا عند استخدام [هومستيد](/docs/{{version}}/homestead) أو[فاليت ](/docs/{{version}}/valet)، سيتم إعداد عناوين الأنترنت الجميلة تلقائيا.
