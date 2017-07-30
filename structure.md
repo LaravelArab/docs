@@ -1,33 +1,35 @@
-# Directory Structure
+<h1 dir="rtl">بنية الدليل</h1>
 
-- [Introduction](#introduction)
-- [The Root Directory](#the-root-directory)
-    - [The `app` Directory](#the-root-app-directory)
-    - [The `bootstrap` Directory](#the-bootstrap-directory)
-    - [The `config` Directory](#the-config-directory)
-    - [The `database` Directory](#the-database-directory)
-    - [The `public` Directory](#the-public-directory)
-    - [The `resources` Directory](#the-resources-directory)
-    - [The `routes` Directory](#the-routes-directory)
-    - [The `storage` Directory](#the-storage-directory)
-    - [The `tests` Directory](#the-tests-directory)
-    - [The `vendor` Directory](#the-vendor-directory)
-- [The App Directory](#the-app-directory)
-    - [The `Console` Directory](#the-console-directory)
-    - [The `Events` Directory](#the-events-directory)
-    - [The `Exceptions` Directory](#the-exceptions-directory)
-    - [The `Http` Directory](#the-http-directory)
-    - [The `Jobs` Directory](#the-jobs-directory)
-    - [The `Listeners` Directory](#the-listeners-directory)
-    - [The `Mail` Directory](#the-mail-directory)
-    - [The `Notifications` Directory](#the-notifications-directory)
-    - [The `Policies` Directory](#the-policies-directory)
-    - [The `Providers` Directory](#the-providers-directory)
+- [مقدمة](#introduction)
+- [الدليل الجذر](#the-root-directory)
+    - [دليل `app`](#the-root-app-directory)
+    - [دليل `bootstrap`](#the-bootstrap-directory)
+    - [دليل `config`](#the-config-directory)
+    - [دليل `database`](#the-database-directory)
+    - [دليل `public`](#the-public-directory)
+    - [دليل `resources`](#the-resources-directory)
+    - [دليل `routes`](#the-routes-directory)
+    - [دليل `storage`](#the-storage-directory)
+    - [دليل `tests`](#the-tests-directory)
+    - [دليل `vendor`](#the-vendor-directory)
+- [دليل التطبيق](#the-app-directory)
+    - [دليل `المِعْـراض` (`Console`)](#the-console-directory)
+    - [دليل `الأحداث` (`Events`)](#the-events-directory)
+    - [دليل `الاستثنائات` (`Exceptions`)](#the-exceptions-directory)
+    - [دليل `Http`](#the-http-directory)
+    - [دليل `المهام` (`Jobs`)](#the-jobs-directory)
+    - [دليل `Listeners`](#the-listeners-directory)
+    - [دليل `البريد` (`Mail`)](#the-mail-directory)
+    - [دليل `التنبيهات` (`Notifications`)](#the-notifications-directory)
+    - [دليل `السياسات` (`Policies`)](#the-policies-directory)
+    - [دليل `المُـقَدِّمين` (`Providers`)](#the-providers-directory)
 
 <a name="introduction"></a>
-## Introduction
+<h2 dir="rtl">مقدمة</h2>
 
-The default Laravel application structure is intended to provide a great starting point for both large and small applications. Of course, you are free to organize your application however you like. Laravel imposes almost no restrictions on where any given class is located - as long as Composer can autoload the class.
+<p dir="rtl">
+بنية تطبيق لارافال المبدئية تهدف إلى توفير نقطة بداية عظيمة لكل من التطبيقات الكبيرة والصغيرة. بالطبع أنت حر في تنظيم تطبيقك كما   تشاء. لارافال لا يفرض تقريبا أي قيود على مكان وضع أي صنف (class) معين مادام الملحن (Composer) يستطيع تحميلها آليا.
+</p>
 
 #### Where Is The Models Directory?
 
