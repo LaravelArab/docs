@@ -148,9 +148,13 @@ Of course, you are not limited to displaying the contents of the variables passe
 
 #### Echoing Data If It Exists
 
-Sometimes you may wish to echo a variable, but you aren't sure if the variable has been set. You can do this using PHP's null coalescing operator:
+Sometimes you may wish to echo a variable, but you aren't sure if the variable has been set. We can express this in verbose PHP code like so:
 
-    {{ $name ?? 'Default' }}
+    {{ isset($name) ? $name : 'Default' }}
+
+However, instead of writing a ternary statement, Blade provides you with the following convenient shortcut, which will be compiled to the ternary statement above:
+
+    {{ $name or 'Default' }}
 
 In this example, if the `$name` variable exists, its value will be displayed. However, if it does not exist, the word `Default` will be displayed.
 
