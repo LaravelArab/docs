@@ -2,6 +2,7 @@
 
 - [المقدمة](#introduction)
 - [إعداد البيئة](#environment-configuration)
+    - [استرجاع إعداد البيئة](#retrieving-environment-configuration)
     - [تحديد البيئة الحالية](#determining-the-current-environment)
 - [الوصول إلى قيم الإعداد](#accessing-configuration-values)
 - [التخزين المؤقت للإعداد](#configuration-caching)
@@ -19,20 +20,20 @@
 
 لجعل هذا مهمة سهلة للغاية، لارافيل يستخدم مكتبة PHP [DotEnv](https://github.com/vlucas/phpdotenv) من فانس لوكاس. عند تنصيب نسخة لارافيل جديدة، سيحتوي دليل الجذر الخاص بتطبيقك على ملف `.env.example`. إذا قمت بتنصيب لارافيل باستخدام الملحن (composer) سيتم تلقائيا إعادة تسيمة هذا الملف بـ`.env`. إن لم تستعمل الطرق الآنفة لتنصيب لارافيل يجب إعادة تسمية الملف يدويا. 
 
-> {tip} 
-> بإمكانك أيضا إنشاء ملف `.env.testing`. هذا الملف سيتجاوز القيم من ملف `.env` عند تشغيل وحدة اختبار PHP أو تنفيذ أمر Artisan مع الخيار `--env=testing`.
+Your `.env` file should not be committed to your application's source control, since each developer / server using your application could require a different environment configuration. Furthermore, this would be a security risk in the event an intruder gain access to your source control repository, since any sensitive credentials would get exposed.
 
-#### استرجاع إعداد البيئة
+If you are developing with a team, you may wish to continue including a `.env.example` file with your application. By putting place-holder values in the example configuration file, other developers on your team can clearly see which environment variables are needed to run your application. You may also create a `.env.testing` file. This file will override values from the `.env` file when running PHPUnit tests or executing Artisan commands with the `--env=testing` option.
+
+> {tip} Any variable in your `.env` file can be overridden by external environment variables such as server-level or system-level environment variables.
+
+<a name="retrieving-environment-configuration"></a>
+### استرجاع إعداد البيئة
 
 سيتم تحميل جميع المتغيرات المدرجة في هذا الملف في `$_ENV` المتغير فائق العالمية لـPHP عندما يتلقى تطبيقك طلبا. ومع ذلك، يمكنك استخدام مساعد `env` لاسترداد القيم من هذه المتغيرات في ملفات الإعداد. في الواقع، إذا قمت بمراجعة ملفات إعداد لارافيل، ستلاحظ العديد من الخيارات تستخدم هذا المساعد.
 
     'debug' => env('APP_DEBUG', false),
 
-القيمة الثانية التي تم تمريرها إلى الدالة `env` هي «القيمة الإفتراضية». سيتم استخدام هذه القيمة في حالة عدم وجود متغير بيئة للمفتاح المُعطى.
-
-يجب ألا يضاف ملف `.env`  لنظام إدارة الشَّـفرة المصدرية الخاص بتطبيقك، حيث أن كل مطور/خادوم يستخدم التطبيق الخاص بك قد يتطلب إعداد بيئة مختلفة.
-
-إذا كنت تتطور في فريق، فقد ترغب في الاستمرار في تضمين ملف `.env.example` مع تطبيقك. من خلال وضع قيم الرمز البديل في ملف الإعداد المثال، يمكن لمطوري البرامج الآخرين في فريقك معرفة متغيرات البيئة المطلوبة لتشغيل التطبيق.
+القيمة الثانية التي تم تمريرها إلى الدالة `env` هي "القيمة الإفتراضية". سيتم استخدام هذه القيمة في حالة عدم وجود متغير بيئة للمفتاح المُعطى.
 
 <a name="determining-the-current-environment"></a>
 ### تحديد البيئة الحالية
@@ -46,10 +47,12 @@
     if (App::environment('local')) {
         // The environment is local
     }
-    
-    if (App::environment('local', 'staging')) {
+
+    if (App::environment(['local', 'staging'])) {
         // The environment is either local OR staging...
     }
+
+> {tip} The current application environment detection can be overriden by a server-level `APP_ENV` environment variable. This can be useful when you need to share the same application for different environment configurations, so you can set up a given host to match a given environment in your server's configurations.
 
 <a name="accessing-configuration-values"></a>
 ## الوصول إلى قيم الإعداد
@@ -79,6 +82,7 @@
 لتمكين نمط الصيانة، قم بتنفيذ أمر Artisan `down`:
 
     php artisan down
+
 يمكنك أيضا تقديم خيار `message` و `retry` إلى الأمر `down`. يتم استخدام قيمة  `message`  لعرض أو تسجيل رسالة مخصصة، في حين سيتم تعيين قيمة `retry` المحاولة بصفتها قيمة رأس `Retry-After` HTTP:
 
     php artisan down --message="Upgrading Database" --retry=60
@@ -86,9 +90,8 @@
 لتعطيل وضع الصيانة، استخدم الأمر `up`:
 
     php artisan up
-#### القالب المسؤول عن نمط الصيانة
 
-يمكنك الوصول إلى القالب الافتراضي لاستجابات نمط الصيانة في `resources/views/errors/503.blade.php`، بإمكانك تعديل هذا العرض حسب الحاجة لتطبيقك.
+> {tip} يمكنك الوصول إلى القالب الافتراضي لاستجابات نمط الصيانة في `resources/views/errors/503.blade.php`، بإمكانك تعديل هذا العرض حسب الحاجة لتطبيقك.
 
 #### نمط الصيانة وقوائم الإنتظار
 
