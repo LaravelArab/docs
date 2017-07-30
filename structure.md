@@ -32,10 +32,11 @@
 </p>
 
 #### Where Is The Models Directory?
+<h3 dir="rtl">أين هو دليل النماذج؟</h3>
 
-When getting started with Laravel, many developers are confused by the lack of a `models` directory. However, the lack of such a directory is intentional. We find the word "models" ambiguous since it means many different things to many different people. Some developers refer to an application's "model" as the totality of all of its business logic, while others refer to "models" as classes that interact with a relational database.
+<p dir="rtl">عند البدء مع لارافال، العديد من المطورين يقعون في حيرة جراء عدم وجود دليل <code>النماذج (models)</code>. لكن عدم  وجود هذا الدليل أمر مقصود. وجدنا أن كلمة «النماذج» ("models") غامضة فهي تعني العديد من الأشياء المختلفة للعديد من الأشخاص المختلفين. بعض المطورين يشير بـ«نموذج» ("model") التطبيق إلى مجمل منطق العمل، بينما يشير آخرون بـ«نماذج» ("models") إلى الأصناف التي تتعامل مع قاعدة البيانات الارتباطية(relational database).</p>
 
-For this reason, we choose to place Eloquent models in the `app` directory by default, and allow the developer to place them somewhere else if they choose.
+<p dir="rtl">لهذا السبب، اخترنا وضع نماذج Eloquent في دليل <code>app</code> مبدئيا، وتمكين المطوِّر من وضعها أينما يشاء.</p>
 
 <a name="the-root-directory"></a>
 ## The Root Directory
