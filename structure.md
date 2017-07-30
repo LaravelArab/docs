@@ -1,39 +1,39 @@
- # بنية الدليل
+# بنية المجلد
 
 - [مقدمة](#introduction)
-- [الدليل الجذر](#the-root-directory)
-    - [دليل `app`](#the-root-app-directory)
-    - [دليل `bootstrap`](#the-bootstrap-directory)
-    - [دليل `config`](#the-config-directory)
-    - [دليل `database`](#the-database-directory)
-    - [دليل `public`](#the-public-directory)
-    - [دليل `resources`](#the-resources-directory)
-    - [دليل `routes`](#the-routes-directory)
-    - [دليل `storage`](#the-storage-directory)
-    - [دليل `tests`](#the-tests-directory)
-    - [دليل `vendor`](#the-vendor-directory)
-- [دليل التطبيق](#the-app-directory)
-    - [دليل `المِعْـراض` (`Console`)](#the-console-directory)
-    - [دليل `الأحداث` (`Events`)](#the-events-directory)
-    - [دليل `الاستثنائات` (`Exceptions`)](#the-exceptions-directory)
-    - [دليل `Http`](#the-http-directory)
-    - [دليل `المهام` (`Jobs`)](#the-jobs-directory)
-    - [دليل `Listeners`](#the-listeners-directory)
-    - [دليل `البريد` (`Mail`)](#the-mail-directory)
-    - [دليل `التنبيهات` (`Notifications`)](#the-notifications-directory)
-    - [دليل `السياسات` (`Policies`)](#the-policies-directory)
-    - [دليل `المُـقَدِّمين` (`Providers`)](#the-providers-directory)
+- [المجلد الجذر](#the-root-directory)
+    - [مجلد `app`](#the-root-app-directory)
+    - [مجلد `bootstrap`](#the-bootstrap-directory)
+    - [مجلد `config`](#the-config-directory)
+    - [مجلد `database`](#the-database-directory)
+    - [مجلد `public`](#the-public-directory)
+    - [مجلد `resources`](#the-resources-directory)
+    - [مجلد `routes`](#the-routes-directory)
+    - [مجلد `storage`](#the-storage-directory)
+    - [مجلد `tests`](#the-tests-directory)
+    - [مجلد `vendor`](#the-vendor-directory)
+- [مجلد التطبيق](#the-app-directory)
+    - [مجلد `Console`](#the-console-directory)
+    - [مجلد `Events`](#the-events-directory)
+    - [مجلد `Exceptions`](#the-exceptions-directory)
+    - [مجلد `Http`](#the-http-directory)
+    - [مجلد `Jobs`](#the-jobs-directory)
+    - [مجلد `Listeners`](#the-listeners-directory)
+    - [مجلد `Mail`](#the-mail-directory)
+    - [مجلد `Notifications`](#the-notifications-directory)
+    - [مجلد `Policies`](#the-policies-directory)
+    - [مجلد `Providers`](#the-providers-directory)
 
 <a name="introduction"></a>
 ## مقدمة
 
 بنية تطبيق لارافال المبدئية تهدف إلى توفير نقطة بداية عظيمة لكل من التطبيقات الكبيرة والصغيرة. بالطبع أنت حر في تنظيم تطبيقك كما   تشاء. لارافال لا يفرض تقريبا أي قيود على مكان وضع أي صنف (class) معين مادام الملحن (Composer) يستطيع تحميلها آليا.
 
-### أين هو دليل النماذج؟
+### أين هو مجلد Models ؟
 
-عند البدء مع لارافال، العديد من المطورين يقعون في حيرة جراء عدم وجود دليل <code>النماذج (models)</code>. لكن عدم  وجود هذا الدليل أمر مقصود. وجدنا أن كلمة «النماذج» ("models") غامضة فهي تعني العديد من الأشياء المختلفة للعديد من الأشخاص المختلفين. بعض المطورين يشير بـ«نموذج» ("model") التطبيق إلى مجمل منطق العمل، بينما يشير آخرون بـ«نماذج» ("models") إلى الأصناف التي تتعامل مع قاعدة البيانات الارتباطية (relational database).
+عند البدء مع لارافال، العديد من المطورين يقعون في حيرة جراء عدم وجود مجلد `Models`. لكن عدم  وجود هذا المجلد أمر مقصود. وجدنا أن كلمة `النماذج - models` غامضة فهي تعني العديد من الأشياء المختلفة للعديد من الأشخاص المختلفين. بعض المطورين يشير بـ `نموذج - model`التطبيق إلى مجمل منطق العمل، بينما يشير آخرون بـ `النماذج - models` إلى الأصناف التي تتعامل مع قاعدة البيانات الارتباطية (relational database).
 
-لهذا السبب، اخترنا وضع نماذج Eloquent في دليل <code>app</code> مبدئيا، وتمكين المطوِّر من وضعها أينما يشاء.
+لهذا السبب، اخترنا وضع نماذج Eloquent في مجلد <code>app</code> مبدئيا، وتمكين المطوِّر من وضعها أينما يشاء.
 
 <a name="the-root-directory"></a>
 ## The Root Directory
