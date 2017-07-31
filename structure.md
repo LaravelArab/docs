@@ -44,9 +44,9 @@
 ملجد `app`، كما تتوقع، تحوي الشفرة الرئيسة لتطبيقك. ينتطرق لهذا المجلد بالتفصيل قريبا، لكن، تقريبا جميع الأصناف (classes) في تطبيقك ستكون داخل هذا المجلد.
 
 <a name="the-bootstrap-directory"></a>
-#### The Bootstrap Directory
+#### مجلد Bootstrap
 
-The `bootstrap` directory contains files that bootstrap the framework and configure autoloading. This directory also houses a `cache` directory which contains framework generated files for performance optimization such as the route and services cache files.
+مجلد `bootstrap` يحوي الملفات المُـمَهِدة لتشغيل إطار العمل وإعداد التحميل التلقائي. هذا المجلد يحوي كذلك مجلد `cache` الذي يظُمُّ بدوره الملفات التي أنشأها إطار العمل لتحسين الأداء مثل ملفات ذاكرة التخزين المؤقت للموجه (route) وللخدمات (services).
 
 <a name="the-config-directory"></a>
 #### The Config Directory
