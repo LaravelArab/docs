@@ -16,13 +16,13 @@
 <a name="introduction"></a>
 ## مقدمة
 
-Valet is a Laravel development environment for Mac minimalists. No Vagrant, no `/etc/hosts` file. You can even share your sites publicly using local tunnels. _Yeah, we like it too._
+فاليت هي بيئة لارافل للتطوير لمستخدمي الماك بأقل الموارد. بدون Vagrant, بدون ملف `/etc/hosts`. حتى أنه يمكنك مشاركة مواقعك مع العامة باستخدام الأنابيب المحلية. طبعا يعجبنا نحن أيضا.
 
-Laravel Valet configures your Mac to always run [Nginx](https://www.nginx.com/) in the background when your machine starts. Then, using [DnsMasq](https://en.wikipedia.org/wiki/Dnsmasq), Valet proxies all requests on the `*.dev` domain to point to sites installed on your local machine.
+لارافيل فاليت يقوم بإعداد الماك الخاص بك ليشتغل [Nginx](https://www.nginx.com/) دائما في الخلفية عند تشغيل جهازك. ثم باستخدام [DnsMasq](https://en.wikipedia.org/wiki/Dnsmasq) فاليت يحول كل الطلبات على الدومين `*.dev` للإشارة إلى المواقع المثبة على جهازك المحلي.
 
-In other words, a blazing fast Laravel development environment that uses roughly 7 MB of RAM. Valet isn't a complete replacement for Vagrant or Homestead, but provides a great alternative if you want flexible basics, prefer extreme speed, or are working on a machine with a limited amount of RAM.
+وبعبارة أخرى، تطوير لارافيل على بيئة سريعة جدا و التي تستخدم على الأكثر 7 ميغابايت من الذاكرة العشوائية. فاليت ليس بديلا كاملا عن Vagrant أو Homestead، ولكنها بديل جيد إذا كنت تريد بداية أساسية ومرنة، وكنت تفضل السرعة العالية أو تستخدم جهاز بذاكرة عشوائية محدودة.
 
-Out of the box, Valet support includes, but is not limited to:
+خارج الصندوق، فاليت يدعم الإضافات التالية، وغير محدود بها:
 
 <div class="content-list" markdown="1">
 - [Laravel](https://laravel.com)
@@ -39,7 +39,7 @@ Out of the box, Valet support includes, but is not limited to:
 - [Zend](https://framework.zend.com)
 </div>
 
-However, you may extend Valet with your own [custom drivers](#custom-valet-drivers).
+ومع ذالك، ربما تريد تعزيز فاليت بتعريفاتك المخصصة.
 
 <a name="valet-or-homestead"></a>
 ### فاليت أو هومستيد
