@@ -36,12 +36,12 @@
 لهذا السبب، اخترنا وضع نماذج Eloquent في مجلد `app` مبدئيا، وتمكين المطوِّر من وضعها أينما يشاء.
 
 <a name="the-root-directory"></a>
-## The Root Directory
+## المجلد الجذر
 
 <a name="the-root-app-directory"></a>
-#### The App Directory
+#### مجلد App
 
-The `app` directory, as you might expect, contains the core code of your application. We'll explore this directory in more detail soon; however, almost all of the classes in your application will be in this directory.
+ملجد `app`، كما تتوقع، تحوي الشفرة الرئيسة لتطبيقك. ينتطرق لهذا المجلد بالتفصيل قريبا، لكن، تقريبا جميع الأصناف (classes) في تطبيقك ستكون داخل هذا المجلد.
 
 <a name="the-bootstrap-directory"></a>
 #### The Bootstrap Directory
