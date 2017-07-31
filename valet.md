@@ -1,28 +1,28 @@
-# لارافيل فاليت
+# لارافيل Valet
 
 - [مقدمة](#introduction)
-    - [فاليت أو هومستيد](#valet-or-homestead)
+    - [Valet أو Homestead](#valet-or-homestead)
 - [تثبيت](#installation)
     - [الترقية](#upgrading)
 - [استضافة المواقع](#serving-sites)
     - [أمر "Park"](#the-park-command)
     - [أمر "Link"](#the-link-command)
-    - [تأمين المواقع باستخدام تلس](#securing-sites)
+    - [تأمين المواقع باستخدام TLS](#securing-sites)
 - [مشاركة المواقع](#sharing-sites)
-- [تعريفات فاليت المخصصة](#custom-valet-drivers)
+- [تعريفات Valet المخصصة](#custom-valet-drivers)
     - [التعريفات المحلية](#local-drivers)
-- [أوامر فاليت الأخرى](#other-valet-commands)
+- [أوامر Valet الأخرى](#other-valet-commands)
 
 <a name="introduction"></a>
 ## مقدمة
 
-فاليت هي بيئة لارافل للتطوير لمستخدمي الماك بأقل الموارد. بدون Vagrant, بدون ملف `/etc/hosts`. حتى أنه يمكنك مشاركة مواقعك مع العامة باستخدام الأنابيب المحلية. طبعا يعجبنا نحن أيضا.
+Valet هو بيئة لارافل للتطوير لمستخدمي الماك بأقل الموارد. دون Vagrant، دون ملف `/etc/hosts`. حتى أنه يمكنك مشاركة مواقعك مع العامة باستخدام الأنابيب المحلية. _طبعا يعجبنا نحن أيضا_.
 
-لارافيل فاليت يقوم بإعداد الماك الخاص بك ليشتغل [Nginx](https://www.nginx.com/) دائما في الخلفية عند تشغيل جهازك. ثم باستخدام [DnsMasq](https://en.wikipedia.org/wiki/Dnsmasq) فاليت يحول كل الطلبات على الدومين `*.dev` للإشارة إلى المواقع المثبة على جهازك المحلي.
+يقوم لارافيل Valet بإعداد جهاز الماك الخاص بك ليقوم بتشغيل [Nginx](https://www.nginx.com/) دائما في الخلفية عند تشغيل جهازك. ثم باستخدام [DnsMasq](https://en.wikipedia.org/wiki/Dnsmasq) يُحَـوِّل Valet كل الطلبات على النِّطاق `*.dev` للإشارة إلى المواقع المُثَبَّـة على جهازك المحلي.
 
-وبعبارة أخرى، تطوير لارافيل على بيئة سريعة جدا و التي تستخدم على الأكثر 7 ميغابايت من الذاكرة العشوائية. فاليت ليس بديلا كاملا عن Vagrant أو Homestead، ولكنها بديل جيد إذا كنت تريد بداية أساسية ومرنة، وكنت تفضل السرعة العالية أو تستخدم جهاز بذاكرة عشوائية محدودة.
+بعبارة أخرى، تطوير لارافيل على بيئة سريعة جدا تستخدم 7 ميغابايت من الذاكرة العشوائية على أكثر تقدير. Valet ليس بديلا كاملا عن Vagrant أو Homestead، ولكنه بديل جيد إذا كنت تريد بداية أساسية ومرنة، وكنت تفضل السرعة العالية أو تستخدم جهازا بذاكرة عشوائية محدودة.
 
-خارج الصندوق، فاليت يدعم الإضافات التالية، وغير محدود بها:
+يكون Valet مُجَهَّـزا لدعم الإضافات التالية، وغير محدود بها:
 
 <div class="content-list" markdown="1">
 - [Laravel](https://laravel.com)
@@ -39,10 +39,10 @@
 - [Zend](https://framework.zend.com)
 </div>
 
-ومع ذالك، ربما تريد تعزيز فاليت بتعريفاتك المخصصة.
+ومع ذلك، ربما تريد تعزيز Valet بتعريفاتك المخصصة.
 
 <a name="valet-or-homestead"></a>
-### فاليت أو هومستيد
+### Valet أو Homestead
 
 As you may know, Laravel offers [Homestead](/docs/{{version}}/homestead), another local Laravel development environment. Homestead and Valet differ in regards to their intended audience and their approach to local development. Homestead offers an entire Ubuntu virtual machine with automated Nginx configuration. Homestead is a wonderful choice if you want a fully virtualized Linux development environment or are on Windows / Linux.
 
@@ -72,7 +72,7 @@ By default, Valet serves your projects using the `.dev` TLD. If you'd like to us
 
 For example, if you'd like to use `.app` instead of `.dev`, run `valet domain app` and Valet will start serving your projects at `*.app` automatically.
 
-#### Database
+#### قاعدة بيانات
 
 If you need a database, try MySQL by running `brew install mysql` on your command line. Once MySQL has been installed, you may start it using the `brew services start mysql` command. You can then connect to the database at `127.0.0.1` using the `root` username and an empty string for the password.
 
@@ -130,7 +130,7 @@ To see a listing of all of your linked directories, run the `valet links` comman
 > {tip} You can use `valet link` to serve the same project from multiple (sub)domains. To add a subdomain or another domain to your project run `valet link subdomain.app-name` from the project folder.
 
 <a name="securing-sites"></a>
-**تأمين المواقع باستخدام تلس**
+**تأمين المواقع باستخدام TLS**
 
 By default, Valet serves sites over plain HTTP. However, if you would like to serve a site over encrypted TLS using HTTP/2, use the `secure` command. For example, if your site is being served by Valet on the `laravel.dev` domain, you should run the following command to secure it:
 
@@ -152,7 +152,7 @@ To stop sharing your site, hit `Control + C` to cancel the process.
 > {note} `valet share` does not currently support sharing sites that have been secured using the `valet secure` command.
 
 <a name="custom-valet-drivers"></a>
-## تعريفات فاليت المخصصة
+## تعريفات Valet المخصصة
 
 You can write your own Valet "driver" to serve PHP applications running on another framework or CMS that is not natively supported by Valet. When you install Valet, a `~/.valet/Drivers` directory is created which contains a `SampleValetDriver.php` file. This file contains a sample driver implementation to demonstrate how to write a custom driver. Writing a driver only requires you to implement three methods: `serves`, `isStaticFile`, and `frontControllerPath`.
 
@@ -256,7 +256,7 @@ If you would like to define a custom Valet driver for a single application, crea
     }
 
 <a name="other-valet-commands"></a>
-## أوامر فاليت الأخرى
+## أوامر Valet الأخرى
 
 Command  | Description
 ------------- | -------------
