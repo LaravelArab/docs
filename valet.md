@@ -44,11 +44,11 @@
 <a name="valet-or-homestead"></a>
 ### فاليت أو هومستيد
 
-As you may know, Laravel offers [Homestead](/docs/{{version}}/homestead), another local Laravel development environment. Homestead and Valet differ in regards to their intended audience and their approach to local development. Homestead offers an entire Ubuntu virtual machine with automated Nginx configuration. Homestead is a wonderful choice if you want a fully virtualized Linux development environment or are on Windows / Linux.
+كما تعلمون، لارافيل تقدم لكم [Homestead](/docs/{{version}}/homestead)، بيئة تطوير محلية أخرى. Homestead و Valet يختلفان فيما يتعلق بجمهورهما المقصود ونهجها في التطوير المحلي. تقدم Homestead نظام أبونتوا كامل على جهاز افتراضي مع إعدادات Nginx ألية. Homestead هو خيار رائع إذا كنت تريد بيئة تطوير لينكس افتراضية كاملة تعمل على ويندوز و لينكس.
 
-Valet only supports Mac, and requires you to install PHP and a database server directly onto your local machine. This is easily achieved by using [Homebrew](http://brew.sh/) with commands like `brew install php71` and `brew install mysql`. Valet provides a blazing fast local development environment with minimal resource consumption, so it's great for developers who only require PHP / MySQL and do not need a fully virtualized development environment.
+Valet تدعم الماك فقط، وتتطلب منك تثبيت PHP و قاعدة بيانات مباشرة في جهازك المحلي. ويمكن تحقيق ذالك بسهولة باستخدام [Homebrew](http://brew.sh/) مع الأمر `brew install php71` و `brew install mysql`. كما توفر Valet بيئة تطوير محلية سريعة مع الحد الأدنى لإستهلاك الموارد، لذالك إنه لشيء رائع للمطورين الذين يحتاجون فقط إلى PHP و MySQL ولا يحتاجون إلى بيئة افتراضية متكاملة.
 
-Both Valet and Homestead are great choices for configuring your Laravel development environment. Which one you choose will depend on your personal taste and your team's needs.
+كل من Valet و Homestead خيار رائع لتكوين بيئة تطوير كاملة للارافيل. أي واحد ستختاره يعتمد على ذوقك الشخصي واحتياجات فريقك.
 
 <a name="installation"></a>
 ## تثبيت
