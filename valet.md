@@ -73,9 +73,9 @@ Valet تدعم الماك فقط، وتتطلب منك تثبيت PHP وقاعد
 
 فمثلا, إذا كنت ترغب في استخدام `.app` بدلا من `.dev`, شغل `valet domain app` و Valet ستبدأ خدمة المشاريع الخاصة بك في `*.app` تلقائيا.
 
-#### قاعدة بيانات
+#### قاعدة البيانات
 
-If you need a database, try MySQL by running `brew install mysql` on your command line. Once MySQL has been installed, you may start it using the `brew services start mysql` command. You can then connect to the database at `127.0.0.1` using the `root` username and an empty string for the password.
+إذا كنت بحاجة إلى قاعدة بيانات, جرب MySQL بتشغيل `brew install mysql` على الطرفية الخاصة بك. بمجرد انتهاء تثبيت MySQL, يمكنك بدأ تشغيلها باستخدام الأمر `brew services start mysql`. بعد ذلك يمكنك الاتصال بقاعدة البيانات في `127.0.0.1` باستخدام إسم المستخدم `root` و كلمة سر فارغة.
 
 <a name="upgrading"></a>
 ### الترقية
