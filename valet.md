@@ -67,11 +67,11 @@ Valet تدعم الماك فقط، وتتطلب منك تثبيت PHP وقاعد
 
 ستبدأ خدمات Valet تلقائيا كل مرة تشغل فيها جهازك. ليست هناك حاجة لتشغيل `valet start` أو `valet install` مرة أخرى بمجرد الإنتهاء من تثبيت Valet الأولي.
 
-#### Using Another Domain
+#### استخدام نطاق آخر
 
-By default, Valet serves your projects using the `.dev` TLD. If you'd like to use another domain, you can do so using the `valet domain tld-name` command.
+افتراضيا, Valet يخدم المشاريع الخاصة بك باستخدام `.dev` TLD. إذا كنت ترغب في استخدام نطاق آخر, يمكنك القيام بذلك باستخدام أمر `valet domain tld-name`.
 
-For example, if you'd like to use `.app` instead of `.dev`, run `valet domain app` and Valet will start serving your projects at `*.app` automatically.
+فمثلا, إذا كنت ترغب في استخدام `.app` بدلا من `.dev`, شغل `valet domain app` و Valet ستبدأ خدمة المشاريع الخاصة بك في `*.app` تلقائيا.
 
 #### قاعدة بيانات
 
