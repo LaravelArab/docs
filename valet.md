@@ -53,18 +53,19 @@ Valet تدعم الماك فقط، وتتطلب منك تثبيت PHP وقاعد
 <a name="installation"></a>
 ## تثبيت
 
-**Valet requires macOS and [Homebrew](http://brew.sh/). Before installation, you should make sure that no other programs such as Apache or Nginx are binding to your local machine's port 80.**
+**Valet يتطلب نظام ماك و [Homebrew](http://brew.sh/). قبل التثبيت, يجب التأكد من عدم وجود برامج أخرى مثل أباتشي أو نجينكس ملزمة لمنفذ الجهاز المحلي 80.**
 
 <div class="content-list" markdown="1">
-- Install or update [Homebrew](http://brew.sh/) to the latest version using `brew update`.
-- Install PHP 7.1 using Homebrew via `brew install homebrew/php/php71`.
-- Install Valet with Composer via `composer global require laravel/valet`. Make sure the `~/.composer/vendor/bin` directory is in your system's "PATH".
-- Run the `valet install` command. This will configure and install Valet and DnsMasq, and register Valet's daemon to launch when your system starts.
+
+- تثبيت أو تحديث [Homebrew](http://brew.sh/) إلى الإصدار الأحدث باستخدام `brew update`.
+- تثبيت PHP 7.1 باستخدام Homebrew من خلال `brew install homebrew/php/php71`.
+- تثبيت Valet باستخدام Composer من خلال `composer global require laravel/valet`. تأكد من أن المسار التالي `~/.composer/vendor/bin` مسجل في نظام المسارات "PATH" الخاص بك.
+- قم بتشغيل الأمر `valet install`. من أجل إعداد و تثبيت Valet و DnsMasq, و تسجيل Valet's daemon لكي يبدأ عند تشغيل نظامك.
 </div>
 
-Once Valet is installed, try pinging any `*.dev` domain on your terminal using a command such as `ping foobar.dev`. If Valet is installed correctly you should see this domain responding on `127.0.0.1`.
+عند تثبيت Valet, حاول رصد أي نطاق `*.dev` على الطرفية الخاصة بك من خلا أمر مثل `ping foobar.dev`. إذا تم تثبيت Valet بشكل صحيح، فسترى هذا النطاق مستجيبا على `127.0.0.1`.
 
-Valet will automatically start its daemon each time your machine boots. There is no need to run `valet start` or `valet install` ever again once the initial Valet installation is complete.
+ستبدأ خدمات Valet تلقائيا كل مرة تشغل فيها جهازك. ليست هناك حاجة لتشغيل `valet start` أو `valet install` مرة أخرى بمجرد الإنتهاء من تثبيت Valet الأولي.
 
 #### Using Another Domain
 
