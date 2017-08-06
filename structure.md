@@ -51,7 +51,7 @@
 <a name="the-config-directory"></a>
 #### مجلد Config
 
-The `config` directory, as the name implies, contains all of your application's configuration files. It's a great idea to read through all of these files and familiarize yourself with all of the options available to you.
+مجلد `config`، كما يوحي اسمه، يحتوي ملفات الإعدادت الخاصة بتطبيقك. من الجيد الاطلاع على هذه الملفات والتعرف على الخيارات المتاحة.
 
 <a name="the-database-directory"></a>
 #### مجلد Database
