@@ -82,23 +82,23 @@ Valet تدعم الماك فقط، وتتطلب منك تثبيت PHP وقاعد
 
 يمكنك تحديث تثبيت Valet باستخدام الأمر `composer global update` في الطرفية الخاصة بك. بعد الترقية, فمن الممارسة الجيدة تشغيل الأمر `valet install` لكي يستطيع Valet عمل ترقيات إضافية لملفات الإعدادات الخاصة بك إذا لزم الأمر.
 
-#### Upgrading To Valet 2.0
+#### الترقية ل Valet 2.0
 
-Valet 2.0 transitions Valet's underlying web server from Caddy to Nginx. Before upgrading to this version you should run the following commands to stop and uninstall the existing Caddy daemon:
+Valet 2.0 انتقلنا من خدمة الويب الأساسي من على Caddy إلى Nginx. قبل الترقية إلى هذا الإصدار يجب تشغيل الأوامر التالية لوقف وإلغاء تثبيت Caddy daemon:
 
     valet stop
     valet uninstall
 
-Next, you should upgrade to the latest version of Valet. Depending on how you installed Valet, this is typically done through Git or Composer. If you installed Valet via Composer, you should use the following command to update to the latest major version:
+بعد ذلك، يجب عليك الترقية إلى أحدث إصدار من Valet. اعتمادا على كيفية تثبيتك ل Valet، ويتم ذلك عادة من خلال Git أو Composer. إذا قمت بتثبيت Valet عبر Composer, يجب عليك استخدام الأمر التالي للتحديث إلى أحدث إصدار رئيسي:
 
     composer global require laravel/valet
 
-Once the fresh Valet source code has been downloaded, you should run the `install` command:
+حالما يتم تحميل الرمز المصدري ل Valet, يجب عليك تشغيل الأمر `install`:
 
     valet install
     valet restart
 
-After upgrading, it may be necessary to re-park or re-link your sites.
+بعد الترقية, فقد يكون من الضروري إعادة وضع حجز على مواقعك أو إعادة ربطها.
 
 <a name="serving-sites"></a>
 ## استضافة المواقع
