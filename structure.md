@@ -56,17 +56,17 @@
 <a name="the-database-directory"></a>
 #### مجلد Database
 
-The `database` directory contains your database migration and seeds. If you wish, you may also use this directory to hold an SQLite database.
+مجلد `database` يحتوي ملفات الترحيل والبذور (migration and seeds) لقاعدة البيانات الخاصة بك. إذا شئت يمكنك استعمال المجلد لاحتواء قاعدة بيانات SQLite.
 
 <a name="the-public-directory"></a>
 #### مجلد Public
 
-The `public` directory contains the `index.php` file, which is the entry point for all requests entering your application. This directory also houses your assets such as images, JavaScript, and CSS.
+مجلد `public` يحوي ملف `index.php`، الذي يمثل نقطة دخول كل الطلبات إلى تطبيقك. هذا المجلد يحتوي أيضا ممتلكاتك (assets) مثل الصور، ملفات جافاسكريبت وCSS.
 
 <a name="the-resources-directory"></a>
 #### مجلد Resources
 
-The `resources` directory contains your views as well as your raw, un-compiled assets such as LESS, SASS, or JavaScript. This directory also houses all of your language files.
+ملجد `resources` يحتوي ملفات العروض (views) والخامات (raw) الخاصة بك، الممتلكات الغير مُجَمَّـعة (un-compiled assets) مثل LESS، SASS أو جافاسكريبت. هذا المجلد يحتوي أيضا ملفات اللغة.
 
 <a name="the-routes-directory"></a>
 #### مجلد Routes
