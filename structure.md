@@ -73,7 +73,7 @@
 
 مجلد `routes` يحتوي كل تعريفات التوجيه (route definitions) لتطبيقك. افتراضيا، بعض ملفات التوجيه مُدرَجة مع لارافال: `web.php` و`api.php` و`console.php` و`channels.php`.
 
-The `web.php` file contains routes that the `RouteServiceProvider` places in the `web` middleware group, which provides session state, CSRF protection, and cookie encryption. If your application does not offer a stateless, RESTful API, all of your routes will most likely be defined in the `web.php` file.
+ملف `web.php` يحتوي على الموجهات التي يضعها `RouteServiceProvider` في مجموعة الوسيط (middleware group) `web`، الذي يقدم حالة الجلسة، حماية CSRF، وتشفير الكعكات. إذا كان تطبيقك لا يوفر واجهة برمجة تطبيقات عديمة الحالة وRESTful، على الأرجح سيتم تعريف الموجهات الخاصة بك في ملف `web.php`.
 
 The `api.php` file contains routes that the `RouteServiceProvider` places in the `api` middleware group, which provides rate limiting. These routes are intended to be stateless, so requests entering the application through these routes are intended to be authenticated via tokens and will not have access to session state.
 
