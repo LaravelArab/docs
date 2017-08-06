@@ -75,11 +75,11 @@
 
 ملف `web.php` يحتوي على الموجهات التي يضعها `RouteServiceProvider` في مجموعة الوسيط (middleware group) `web`، الذي يقدم حالة الجلسة، حماية CSRF، وتشفير الكعكات. إذا كان تطبيقك لا يوفر واجهة برمجة تطبيقات عديمة الحالة وRESTful، على الأرجح سيتم تعريف الموجهات الخاصة بك في ملف `web.php`.
 
-The `api.php` file contains routes that the `RouteServiceProvider` places in the `api` middleware group, which provides rate limiting. These routes are intended to be stateless, so requests entering the application through these routes are intended to be authenticated via tokens and will not have access to session state.
+ملف `api.php` يحوي الموجهات التي يضعها `RouteServiceProvider` في مجموعة الوسيط `api`، الذي يقدم معدَّل الحد. هذه الموجهات يتم إعدادها لتكون عديمة الحالة، لذا الطلبات عبر هذه الموجهات يتم إعدادها لتكون مُعَرَّفة عبر رموز (tokens) ولن يتم تمكينها من دخول حالة الجلسة.
 
-The `console.php` file is where you may define all of your Closure based console commands. Each Closure is bound to a command instance allowing a simple approach to interacting with each command's IO methods. Even though this file does not define HTTP routes, it defines console based entry points (routes) into your application.
+يمكنك تعريف أوامر المعراض القائمة على الإغلاق (Closure based console commands) الخاص بك في ملف `console.php`. كل إغلاق مُقَيَّـد بمثيل أمر يمَكِّـن مقاربة سهلة من التعامل مع كل طرق مدخلات ومخرجات الأمر. بالرغم من أن هذا الملف لا يُعَرِّف طلبات HTTP، فهو يعرف نقاط الدخول القائمة على المعراض (موجهات) في تطبيقك.
 
-The `channels.php` file is where you may register all of the event broadcasting channels that your application supports.
+يمكنك تسجيل كل قنوات بث الأحداث التي يدعمها تطبيقك في ملف `channels.php`.
 
 <a name="the-storage-directory"></a>
 #### مجلد Storage
