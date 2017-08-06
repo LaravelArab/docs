@@ -80,7 +80,7 @@ Valet تدعم الماك فقط، وتتطلب منك تثبيت PHP وقاعد
 <a name="upgrading"></a>
 ### الترقية
 
-You may update your Valet installation using the `composer global update` command in your terminal. After upgrading, it is good practice to run the `valet install` command so Valet can make additional upgrades to your configuration files if necessary.
+يمكنك تحديث تثبيت Valet باستخدام الأمر `composer global update` في الطرفية الخاصة بك. بعد الترقية, فمن الممارسة الجيدة تشغيل الأمر `valet install` لكي يستطيع Valet عمل ترقيات إضافية لملفات الإعدادات الخاصة بك إذا لزم الأمر.
 
 #### Upgrading To Valet 2.0
 
