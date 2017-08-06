@@ -66,12 +66,12 @@
 <a name="the-resources-directory"></a>
 #### مجلد Resources
 
-ملجد `resources` يحتوي ملفات العروض (views) والخامات (raw) الخاصة بك، الممتلكات الغير مُجَمَّـعة (un-compiled assets) مثل LESS، SASS أو جافاسكريبت. هذا المجلد يحتوي أيضا ملفات اللغة.
+مجلد `resources` يحتوي ملفات العروض (views) والخامات (raw) الخاصة بك والممتلكات الغير مُجَمَّـعة (un-compiled assets) مثل LESS، SASS أو جافاسكريبت. هذا المجلد يحتوي أيضا ملفات اللغة.
 
 <a name="the-routes-directory"></a>
 #### مجلد Routes
 
-The `routes` directory contains all of the route definitions for your application. By default, several route files are included with Laravel: `web.php`, `api.php`, `console.php` and `channels.php`.
+مجلد `routes` يحتوي كل تعريفات التوجيه (route definitions) لتطبيقك. افتراضيا، بعض ملفات التوجيه مُدرَجة مع لارافال: `web.php` و`api.php` و`console.php` و`channels.php`.
 
 The `web.php` file contains routes that the `RouteServiceProvider` places in the `web` middleware group, which provides session state, CSRF protection, and cookie encryption. If your application does not offer a stateless, RESTful API, all of your routes will most likely be defined in the `web.php` file.
 
@@ -96,7 +96,7 @@ The `tests` directory contains your automated tests. An example [PHPUnit](https:
 <a name="the-vendor-directory"></a>
 #### مجلد Vendor
 
-The `vendor` directory contains your [Composer](https://getcomposer.org) dependencies.
+مجلد `vendor` يحتوي تبعيات [الملحن](https://getcomposer.org) الخاص بك.
 
 <a name="the-app-directory"></a>
 ## مجلد App
