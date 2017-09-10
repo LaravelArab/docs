@@ -5,12 +5,12 @@
     - [تـنصيب لارفيل](#installing-laravel)
     - [الإعداد](#configuration)
 - [إعداد خادوم الويب](#web-server-configuration)
-    - [عناوين أنترنت جميلة](#pretty-urls)
+    - [مسارات جميلة](#pretty-urls)
 
 <a name="installation"></a>
 ## التنصيب
 
-> {video} هل أنت متعلم بالمشاهدة؟ لاراكاست يوفر [مجانا، مقدمة شاملة للارافيل](https://laracasts.com/series/laravel-from-scratch-2017) للقادمين الجدد لإطار العمل. إنه مكان عظيم لبدء رحلتك.
+> {video} هل تَتَعَلَّـم بالمشاهدة؟ لاراكاست يوفر [مقدمة شاملة للارافيل مجانا](https://laracasts.com/series/laravel-from-scratch-2017) للمستعملين الجدد لإطار العمل. إنه مكان عظيم لانطلاق رحلتك.
 
 <a name="server-requirements"></a>
 ### متطلبات الخادوم
