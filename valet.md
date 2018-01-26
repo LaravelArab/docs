@@ -1,28 +1,28 @@
-# لارافيل فاليت
+# لارافيل Valet
 
 - [مقدمة](#introduction)
-    - [فاليت أو هومستيد](#valet-or-homestead)
+    - [Valet أو Homestead](#valet-or-homestead)
 - [تثبيت](#installation)
     - [الترقية](#upgrading)
 - [استضافة المواقع](#serving-sites)
     - [أمر "Park"](#the-park-command)
     - [أمر "Link"](#the-link-command)
-    - [تأمين المواقع باستخدام تلس](#securing-sites)
+    - [تأمين المواقع باستخدام TLS](#securing-sites)
 - [مشاركة المواقع](#sharing-sites)
-- [تعريفات فاليت المخصصة](#custom-valet-drivers)
+- [تعريفات Valet المخصصة](#custom-valet-drivers)
     - [التعريفات المحلية](#local-drivers)
-- [أوامر فاليت الأخرى](#other-valet-commands)
+- [أوامر Valet الأخرى](#other-valet-commands)
 
 <a name="introduction"></a>
 ## مقدمة
 
-Valet is a Laravel development environment for Mac minimalists. No Vagrant, no `/etc/hosts` file. You can even share your sites publicly using local tunnels. _Yeah, we like it too._
+Valet هو بيئة لارافل للتطوير لمستخدمي الماك بأقل الموارد. دون Vagrant، دون ملف `/etc/hosts`. حتى أنه يمكنك مشاركة مواقعك مع العامة باستخدام الأنابيب المحلية. _طبعا يعجبنا نحن أيضا_.
 
-Laravel Valet configures your Mac to always run [Nginx](https://www.nginx.com/) in the background when your machine starts. Then, using [DnsMasq](https://en.wikipedia.org/wiki/Dnsmasq), Valet proxies all requests on the `*.dev` domain to point to sites installed on your local machine.
+يقوم لارافيل Valet بإعداد جهاز الماك الخاص بك ليقوم بتشغيل [Nginx](https://www.nginx.com/) دائما في الخلفية عند تشغيل جهازك. ثم باستخدام [DnsMasq](https://en.wikipedia.org/wiki/Dnsmasq) يُحَـوِّل Valet كل الطلبات على النِّطاق `*.dev` للإشارة إلى المواقع المُثَبَّـة على جهازك المحلي.
 
-In other words, a blazing fast Laravel development environment that uses roughly 7 MB of RAM. Valet isn't a complete replacement for Vagrant or Homestead, but provides a great alternative if you want flexible basics, prefer extreme speed, or are working on a machine with a limited amount of RAM.
+بعبارة أخرى، تطوير لارافيل على بيئة سريعة جدا تستخدم 7 ميغابايت من الذاكرة العشوائية على أكثر تقدير. Valet ليس بديلا كاملا عن Vagrant أو Homestead، ولكنه بديل جيد إذا كنت تريد بداية أساسية ومرنة، وكنت تفضل السرعة العالية أو تستخدم جهازا بذاكرة عشوائية محدودة.
 
-Out of the box, Valet support includes, but is not limited to:
+يكون Valet مُجَهَّـزا لدعم الإضافات التالية، وغير محدود بها:
 
 <div class="content-list" markdown="1">
 - [Laravel](https://laravel.com)
@@ -39,65 +39,66 @@ Out of the box, Valet support includes, but is not limited to:
 - [Zend](https://framework.zend.com)
 </div>
 
-However, you may extend Valet with your own [custom drivers](#custom-valet-drivers).
+ومع ذلك، ربما تريد تعزيز Valet بتعريفاتك المخصصة.
 
 <a name="valet-or-homestead"></a>
-### فاليت أو هومستيد
+### Valet أو Homestead
 
-As you may know, Laravel offers [Homestead](/docs/{{version}}/homestead), another local Laravel development environment. Homestead and Valet differ in regards to their intended audience and their approach to local development. Homestead offers an entire Ubuntu virtual machine with automated Nginx configuration. Homestead is a wonderful choice if you want a fully virtualized Linux development environment or are on Windows / Linux.
+كما تعلمون، لارافيل تقدم لكم [Homestead](/docs/{{version}}/homestead)، بيئة تطوير محلية أخرى. Homestead وValet يختلفان فيما يتعلق بجمهورهما المقصود ونهجهما في التطوير المحلي. تقدم Homestead نظام Ubuntu كاملا على جهاز افتراضي مع إعدادات Nginx آلية. Homestead هو خيار رائع إذا كنت تريد بيئة تطوير لينكس افتراضية كاملة تعمل على ويندوز ولينكس.
 
-Valet only supports Mac, and requires you to install PHP and a database server directly onto your local machine. This is easily achieved by using [Homebrew](http://brew.sh/) with commands like `brew install php71` and `brew install mysql`. Valet provides a blazing fast local development environment with minimal resource consumption, so it's great for developers who only require PHP / MySQL and do not need a fully virtualized development environment.
+Valet تدعم الماك فقط، وتتطلب منك تثبيت PHP وقاعدة بيانات مباشرة في جهازك المحلي. ويمكن تحقيق ذلك بسهولة باستخدام [Homebrew](http://brew.sh/) مع الأمر `brew install php71` و`brew install mysql`. توفر Valet بيئة تطوير محلية سريعة مع الحد الأدنى لاستهلاك الموارد، لذلك فهو رائع للمطورين الذين يحتاجون فقط إلى PHP وMySQL ولا يحتاجون إلى بيئة افتراضية متكاملة.
 
-Both Valet and Homestead are great choices for configuring your Laravel development environment. Which one you choose will depend on your personal taste and your team's needs.
+كل من Valet وHomestead خيار رائع لتكوين بيئة تطوير كاملة للارافيل. اختيارك أحدهما يعتمد على ذوقك الشخصي واحتياجات فريقك.
 
 <a name="installation"></a>
 ## تثبيت
 
-**Valet requires macOS and [Homebrew](http://brew.sh/). Before installation, you should make sure that no other programs such as Apache or Nginx are binding to your local machine's port 80.**
+**Valet يتطلب نظام ماك و [Homebrew](http://brew.sh/). قبل التثبيت، يجب التأكد من عدم وجود برامج أخرى مثل Apache أو Nginx ملزمة لمنفذ الجهاز المحلي 80.**
 
 <div class="content-list" markdown="1">
-- Install or update [Homebrew](http://brew.sh/) to the latest version using `brew update`.
-- Install PHP 7.1 using Homebrew via `brew install homebrew/php/php71`.
-- Install Valet with Composer via `composer global require laravel/valet`. Make sure the `~/.composer/vendor/bin` directory is in your system's "PATH".
-- Run the `valet install` command. This will configure and install Valet and DnsMasq, and register Valet's daemon to launch when your system starts.
+
+- تثبيت أو تحديث [Homebrew](http://brew.sh/) إلى الإصدار الأحدث باستخدام `brew update`.
+- تثبيت PHP 7.1 باستخدام Homebrew من خلال `brew install homebrew/php/php71`.
+- تثبيت Valet باستخدام Composer من خلال `composer global require laravel/valet`. تأكد من أن المسار التالي `~/.composer/vendor/bin` مسجل في نظام المسارات "PATH" الخاص بك.
+- قم بتشغيل الأمر `valet install`. لإعداد وتثبيت Valet وDnsMasq وتسجيل Valet's daemon لكي يبدأ عند تشغيل نظامك.
 </div>
 
-Once Valet is installed, try pinging any `*.dev` domain on your terminal using a command such as `ping foobar.dev`. If Valet is installed correctly you should see this domain responding on `127.0.0.1`.
+عند تثبيت Valet، حاول رصد أي نطاق `*.dev` على الطرفية الخاصة بك من خلال أمر مثل `ping foobar.dev`. إذا تم تثبيت Valet بشكل صحيح، فسترى هذا النطاق مستجيبا على `127.0.0.1`.
 
-Valet will automatically start its daemon each time your machine boots. There is no need to run `valet start` or `valet install` ever again once the initial Valet installation is complete.
+ستبدأ خدمات Valet تلقائيا كل مرة تقوم فيها بتشغيل جهازك. ليست هناك حاجة لتشغيل `valet start` أو `valet install` مرة أخرى بمجرد الإنتهاء من تثبيت Valet الأولي.
 
-#### Using Another Domain
+#### استخدام نطاق آخر
 
-By default, Valet serves your projects using the `.dev` TLD. If you'd like to use another domain, you can do so using the `valet domain tld-name` command.
+افتراضيا، Valet يخدم المشاريع الخاصة بك باستخدام `.dev` TLD. إذا كنت ترغب في استخدام نطاق آخر، يمكنك القيام بذلك باستخدام أمر `valet domain tld-name`.
 
-For example, if you'd like to use `.app` instead of `.dev`, run `valet domain app` and Valet will start serving your projects at `*.app` automatically.
+فمثلا، إذا كنت ترغب في استخدام `.app` بدلا من `.dev`، قم بتشغيل `valet domain app` و Valet ستبدأ خدمة المشاريع الخاصة بك في `*.app` تلقائيا.
 
-#### Database
+#### قاعدة البيانات
 
-If you need a database, try MySQL by running `brew install mysql` on your command line. Once MySQL has been installed, you may start it using the `brew services start mysql` command. You can then connect to the database at `127.0.0.1` using the `root` username and an empty string for the password.
+إذا كنت بحاجة إلى قاعدة بيانات، جرب MySQL بتشغيل `brew install mysql` على الطرفية الخاصة بك. بمجرد انتهاء تثبيت MySQL، يمكنك البدء بتشغيلها باستخدام الأمر `brew services start mysql`. بعد ذلك يمكنك الاتصال بقاعدة البيانات في `127.0.0.1` باستخدام اسم المستخدم `root` وكلمة سر فارغة.
 
 <a name="upgrading"></a>
 ### الترقية
 
-You may update your Valet installation using the `composer global update` command in your terminal. After upgrading, it is good practice to run the `valet install` command so Valet can make additional upgrades to your configuration files if necessary.
+يمكنك تحديث تثبيت Valet باستخدام الأمر `composer global update` في الطرفية الخاصة بك. بعد الترقية، من الجيد تشغيل الأمر `valet install` ليستطيع Valet عمل ترقيات إضافية لملفات الإعدادات الخاصة بك إذا لزم الأمر.
 
-#### Upgrading To Valet 2.0
+#### الترقية إلى Valet 2.0
 
-Valet 2.0 transitions Valet's underlying web server from Caddy to Nginx. Before upgrading to this version you should run the following commands to stop and uninstall the existing Caddy daemon:
+Valet 2.0 انتقلنا من خدمة الويب الأساسي من على Caddy إلى Nginx. قبل الترقية إلى هذا الإصدار يجب تشغيل الأوامر التالية لوقف وإلغاء تثبيت Caddy daemon:
 
     valet stop
     valet uninstall
 
-Next, you should upgrade to the latest version of Valet. Depending on how you installed Valet, this is typically done through Git or Composer. If you installed Valet via Composer, you should use the following command to update to the latest major version:
+بعد ذلك، يجب عليك الترقية إلى أحدث إصدار من Valet. اعتمادا على كيفية تثبيتك لـValet، ويتم ذلك عادة من خلال Git أو Composer. إذا قمت بتثبيت Valet عبر Composer، يجب عليك استخدام الأمر التالي للتحديث إلى أحدث إصدار رئيس:
 
     composer global require laravel/valet
 
-Once the fresh Valet source code has been downloaded, you should run the `install` command:
+حالما يتم تحميل الشفرة المصدرية لـValet، يجب عليك تشغيل الأمر `install`:
 
     valet install
     valet restart
 
-After upgrading, it may be necessary to re-park or re-link your sites.
+بعد الترقية، قد يكون من الضروري إعادة وضع حجز على مواقعك أو إعادة ربطها.
 
 <a name="serving-sites"></a>
 ## استضافة المواقع
@@ -130,7 +131,7 @@ To see a listing of all of your linked directories, run the `valet links` comman
 > {tip} You can use `valet link` to serve the same project from multiple (sub)domains. To add a subdomain or another domain to your project run `valet link subdomain.app-name` from the project folder.
 
 <a name="securing-sites"></a>
-**تأمين المواقع باستخدام تلس**
+**تأمين المواقع باستخدام TLS**
 
 By default, Valet serves sites over plain HTTP. However, if you would like to serve a site over encrypted TLS using HTTP/2, use the `secure` command. For example, if your site is being served by Valet on the `laravel.dev` domain, you should run the following command to secure it:
 
@@ -152,7 +153,7 @@ To stop sharing your site, hit `Control + C` to cancel the process.
 > {note} `valet share` does not currently support sharing sites that have been secured using the `valet secure` command.
 
 <a name="custom-valet-drivers"></a>
-## تعريفات فاليت المخصصة
+## تعريفات Valet المخصصة
 
 You can write your own Valet "driver" to serve PHP applications running on another framework or CMS that is not natively supported by Valet. When you install Valet, a `~/.valet/Drivers` directory is created which contains a `SampleValetDriver.php` file. This file contains a sample driver implementation to demonstrate how to write a custom driver. Writing a driver only requires you to implement three methods: `serves`, `isStaticFile`, and `frontControllerPath`.
 
@@ -256,7 +257,7 @@ If you would like to define a custom Valet driver for a single application, crea
     }
 
 <a name="other-valet-commands"></a>
-## أوامر فاليت الأخرى
+## أوامر Valet الأخرى
 
 Command  | Description
 ------------- | -------------
