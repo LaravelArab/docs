@@ -127,7 +127,7 @@
 <a name="the-http-directory"></a>
 #### مجلد Http
 
-The `Http` directory contains your controllers, middleware, and form requests. Almost all of the logic to handle requests entering your application will be placed in this directory.
+يحوي مجلد `Http` المتحكمات الخاصة بك، الوسائط، وطلبات النماذج. تقريبا كل المنطق الذي سيعالج الطلبات الداخلة لتطبيقك سيتم وضعها في هذا المجلد. 
 
 <a name="the-jobs-directory"></a>
 #### مجلد Jobs
