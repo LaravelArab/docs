@@ -132,7 +132,7 @@
 <a name="the-jobs-directory"></a>
 #### مجلد Jobs
 
-This directory does not exist by default, but will be created for you if you execute the `make:job` Artisan command. The `Jobs` directory houses the [queueable jobs](/docs/{{version}}/queues) for your application. Jobs may be queued by your application or run synchronously within the current request lifecycle. Jobs that run synchronously during the current request are sometimes referred to as "commands" since they are an implementation of the [command pattern](https://en.wikipedia.org/wiki/Command_pattern).
+افتراضيا هذا المجلد غير موجود، لكن سيتم إنشاؤه من أجلك عند تنفيذك أمر Artisan `make:job`. يحوي مجلد `Jobs` [المهام القابلة للتصفيف](/docs/{{version}}/queues) الخاصة بتطبيقك. المهام يمكن تصفيفها عن طريق تطبيقك عبر تشغيلها بصفة متزامنة ضمن دورة حياة الطلب الحالي. المهام التي يتم تشغيلها بصفة متزامنة خلال الطلب الحالي يتم الإشارة إليها أحيانا بـ"أوامر" نظرا لأنها تطبيق لـ[نمط الأمر](https://en.wikipedia.org/wiki/Command_pattern)  
 
 <a name="the-listeners-directory"></a>
 #### مجلد Listeners
