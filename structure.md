@@ -112,7 +112,7 @@
 <a name="the-console-directory"></a>
 #### مجلد Console
 
-The `Console` directory contains all of the custom Artisan commands for your application. These commands may be generated using the `make:command` command. This directory also houses your console kernel, which is where your custom Artisan commands are registered and your [scheduled tasks](/docs/{{version}}/scheduling) are defined.
+يحوي مجلد `ِConsole` أوامر Artisan المعدَّلة لتطبيقك. يمكن توليد تلك الأوامر عبر تنفيذ الأمر `make:command`. يحوي هذا المجلد أيضا نواة console الخاص بك، أين يتم تسجيل أوامر Artisan ويتم تعريف [المهام المجدولة](/docs/{{version}}/scheduling) الخاصة بك.
 
 <a name="the-events-directory"></a>
 #### مجلد Events
