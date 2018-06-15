@@ -91,7 +91,7 @@
 <a name="the-tests-directory"></a>
 #### مجلد Tests
 
-The `tests` directory contains your automated tests. An example [PHPUnit](https://phpunit.de/) is provided out of the box. Each test class should be suffixed with the word `Test`. You may run your tests using the `phpunit` or `php vendor/bin/phpunit` commands.
+مجلد `tests` يحوي اختباراتك الأوتوماتيكية. مثلا [PHPUnit](https://phpunit.de/) متوفر افتراضيا. كل صنف (class) اختبار يجب أن تبدأ بكلمة `Test`. يمكنك تشغيل اختباراتك عبر الأمر `phpunit` أو الأمر `php vendor/bin/phpunit`. 
 
 <a name="the-vendor-directory"></a>
 #### مجلد Vendor
