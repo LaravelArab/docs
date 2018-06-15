@@ -122,7 +122,7 @@
 <a name="the-exceptions-directory"></a>
 #### مجلد Exceptions
 
-The `Exceptions` directory contains your application's exception handler and is also a good place to place any exceptions thrown by your application. If you would like to customize how your exceptions are logged or rendered, you should modify the `Handler` class in this directory.
+يحوي مجلد `Exceptions` معالج الاستثناءات الخاص بتطبيقك وهو مكان مناسب لوضع أي استثناءات لتطبيقك. إذا كنت تريد تخصيص كيفية تسجيل وعرض الاستثناءات الخاصة بك، عليك تعديل صنف `Handler` في هذا المجلد.
 
 <a name="the-http-directory"></a>
 #### مجلد Http
