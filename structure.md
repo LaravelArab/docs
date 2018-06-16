@@ -1,160 +1,162 @@
-# Directory Structure
+# بنية المجلد
 
-- [Introduction](#introduction)
-- [The Root Directory](#the-root-directory)
-    - [The `app` Directory](#the-root-app-directory)
-    - [The `bootstrap` Directory](#the-bootstrap-directory)
-    - [The `config` Directory](#the-config-directory)
-    - [The `database` Directory](#the-database-directory)
-    - [The `public` Directory](#the-public-directory)
-    - [The `resources` Directory](#the-resources-directory)
-    - [The `routes` Directory](#the-routes-directory)
-    - [The `storage` Directory](#the-storage-directory)
-    - [The `tests` Directory](#the-tests-directory)
-    - [The `vendor` Directory](#the-vendor-directory)
-- [The App Directory](#the-app-directory)
-    - [The `Console` Directory](#the-console-directory)
-    - [The `Events` Directory](#the-events-directory)
-    - [The `Exceptions` Directory](#the-exceptions-directory)
-    - [The `Http` Directory](#the-http-directory)
-    - [The `Jobs` Directory](#the-jobs-directory)
-    - [The `Listeners` Directory](#the-listeners-directory)
-    - [The `Mail` Directory](#the-mail-directory)
-    - [The `Notifications` Directory](#the-notifications-directory)
-    - [The `Policies` Directory](#the-policies-directory)
-    - [The `Providers` Directory](#the-providers-directory)
+- [مقدمة](#introduction)
+- [المجلد الجذر](#the-root-directory)
+    - [مجلد `app`](#the-root-app-directory)
+    - [مجلد `bootstrap`](#the-bootstrap-directory)
+    - [مجلد `config`](#the-config-directory)
+    - [مجلد `database`](#the-database-directory)
+    - [مجلد `public`](#the-public-directory)
+    - [مجلد `resources`](#the-resources-directory)
+    - [مجلد `routes`](#the-routes-directory)
+    - [مجلد `storage`](#the-storage-directory)
+    - [مجلد `tests`](#the-tests-directory)
+    - [مجلد `vendor`](#the-vendor-directory)
+- [مجلد التطبيق](#the-app-directory)
+    - [مجلد `Console`](#the-console-directory)
+    - [مجلد `Events`](#the-events-directory)
+    - [مجلد `Exceptions`](#the-exceptions-directory)
+    - [مجلد `Http`](#the-http-directory)
+    - [مجلد `Jobs`](#the-jobs-directory)
+    - [مجلد `Listeners`](#the-listeners-directory)
+    - [مجلد `Mail`](#the-mail-directory)
+    - [مجلد `Notifications`](#the-notifications-directory)
+    - [مجلد `Policies`](#the-policies-directory)
+    - [مجلد `Providers`](#the-providers-directory)
 
 <a name="introduction"></a>
-## Introduction
+## مقدمة
 
-The default Laravel application structure is intended to provide a great starting point for both large and small applications. Of course, you are free to organize your application however you like. Laravel imposes almost no restrictions on where any given class is located - as long as Composer can autoload the class.
+بنية تطبيق لارافال المبدئية تهدف إلى توفير نقطة بداية للتطبيقات الكبيرة والصغيرة. بالطبع أنت حر في تنظيم تطبيقك كما تشاء. لارافال لا يفرض تقريبا أي قيود على مكان وضع أي صنف (class) معين مادام Composer يستطيع تحميله آليا.
 
-#### Where Is The Models Directory?
+### أين هو مجلد Models ؟
 
-When getting started with Laravel, many developers are confused by the lack of a `models` directory. However, the lack of such a directory is intentional. We find the word "models" ambiguous since it means many different things to many different people. Some developers refer to an application's "model" as the totality of all of its business logic, while others refer to "models" as classes that interact with a relational database.
+عند البدء مع لارافال، العديد من المطورين يقعون في حيرة جراء عدم وجود مجلد `Models`. لكن ذلك أمر مقصود. وجدنا أن كلمة `النماذج - models` غامضة، فهي تعني العديد من الأشياء المختلفة للعديد من الأشخاص المختلفين. بعض المطورين يشير بـ`نموذج - model` التطبيق إلى مجمل منطق العمل، بينما يشير آخرون بـ`النماذج - models` إلى الأصناف التي تتعامل مع قاعدة البيانات الارتباطية (relational database).
 
-For this reason, we choose to place Eloquent models in the `app` directory by default, and allow the developer to place them somewhere else if they choose.
+لهذا السبب، اخترنا وضع نماذج Eloquent في مجلد `app` مبدئيا، وتمكين المطوِّر من وضعها أينما يشاء.
 
 <a name="the-root-directory"></a>
-## The Root Directory
+## المجلد الجذر
 
 <a name="the-root-app-directory"></a>
-#### The App Directory
+#### مجلد App
 
-The `app` directory, as you might expect, contains the core code of your application. We'll explore this directory in more detail soon; however, almost all of the classes in your application will be in this directory.
+مجلد `app`، كما تتوقع، يحوي الشفرة الرئيسة لتطبيقك. سنتَـطَـرَّق للحديث عن هذا المجلد بالتفصيل قريبا. لكن -تقريبا- جميع الأصناف (classes) في تطبيقك ستكون داخل هذا المجلد.
 
 <a name="the-bootstrap-directory"></a>
-#### The Bootstrap Directory
+#### مجلد Bootstrap
 
-The `bootstrap` directory contains files that bootstrap the framework and configure autoloading. This directory also houses a `cache` directory which contains framework generated files for performance optimization such as the route and services cache files.
+مجلد `bootstrap` يَضُـمُّ الملفات المُـمَـهِدة لتشغيل إطار العمل وإعداد التحميل التلقائي. هذا المجلد يَحْـوي كذلك مجلد `cache` الذي يضُـمُّ بدوره الملفات التي أنشأها إطار العمل لتحسين الأداء مثل ملفات ذاكرة التخزين المؤقت (cache files) للمُوَجِّـه (route) وللخدمات (services).
 
 <a name="the-config-directory"></a>
-#### The Config Directory
+#### مجلد Config
 
-The `config` directory, as the name implies, contains all of your application's configuration files. It's a great idea to read through all of these files and familiarize yourself with all of the options available to you.
+مجلد `config`، كما يوحي اسمه، يحوي ملفات الإعدادت الخاصة بتطبيقك. من الجيد الاطلاع على هذه الملفات والتعرف على الخيارات المتاحة.
 
 <a name="the-database-directory"></a>
-#### The Database Directory
+#### مجلد Database
 
-The `database` directory contains your database migration and seeds. If you wish, you may also use this directory to hold an SQLite database.
+مجلد `database` يحوي ملفات الترحيل والبذور (migration and seeds) لقاعدة بياناتك. إذا شئت يمكنك استعمال المجلد لاحتواء قاعدة بيانات SQLite.
 
 <a name="the-public-directory"></a>
-#### The Public Directory
+#### مجلد Public
 
-The `public` directory contains the `index.php` file, which is the entry point for all requests entering your application. This directory also houses your assets such as images, JavaScript, and CSS.
+مجلد `public` يحوي ملف `index.php`، الذي يمثل نقطة دخول كل الطلبات (requests) إلى تطبيقك. هذا المجلد يحوي أيضا ممتلكاتك (assets) مثل الصور، ملفات جافاسكريبت وCSS.
 
 <a name="the-resources-directory"></a>
-#### The Resources Directory
+#### مجلد Resources
 
-The `resources` directory contains your views as well as your raw, un-compiled assets such as LESS, SASS, or JavaScript. This directory also houses all of your language files.
+مجلد `resources` يحوي ملفات العروض (views) والخامات (raw) الخاصة بك والممتلكات الغير مُجَمَّـعة (un-compiled assets) مثل LESS، SASS أو جافاسكريبت. هذا المجلد يحوي أيضا ملفات اللغة.
 
 <a name="the-routes-directory"></a>
-#### The Routes Directory
+#### مجلد Routes
 
-The `routes` directory contains all of the route definitions for your application. By default, three route files are included with Laravel: `web.php`, `api.php`, and `console.php`.
+مجلد `routes` يحوي كل تعريفات التوجيه (route definitions) لتطبيقك. افتراضيا، بعض ملفات التوجيه مُدرَجة مع لارافال: `web.php` و`api.php` و`console.php` و`channels.php`.
 
-The `web.php` file contains routes that the `RouteServiceProvider` places in the `web` middleware group, which provides session state, CSRF protection, and cookie encryption. If your application does not offer a stateless, RESTful API, all of your routes will most likely be defined in the `web.php` file.
+ملف `web.php` يحتوي على الموجهات التي يضعها `RouteServiceProvider` في مجموعة الوسيط (middleware group) `web`، الذي يقدم حالة الجلسة، حماية CSRF، وتشفير الكعكات (cookies). إذا كان تطبيقك لا يوفر واجهة برمجة تطبيقات (API) عديمة الحالة وRESTful، على الأرجح سيتم تعريف الموجهات الخاصة بك في ملف `web.php`.
 
-The `api.php` file contains routes that the `RouteServiceProvider` places in the `api` middleware group, which provides rate limiting. These routes are intended to be stateless, so requests entering the application through these routes are intended to be authenticated via tokens and will not have access to session state.
+ملف `api.php` يحوي الموجهات التي يضعها `RouteServiceProvider` في مجموعة الوسيط `api`، الذي يقدم معدَّل الحد. هذه الموجهات يتم إعدادها لتكون عديمة الحالة، لذا الطلبات عبر هذه الموجهات يتم إعدادها لتكون مُعَرَّفة عبر رموز (tokens) ولن يتم تمكينها من دخول حالة الجلسة.
 
-The `console.php` file is where you may define all of your Closure based console commands. Each Closure is bound to a command instance allowing a simple approach to interacting with each command's IO methods. Even though this file does not define HTTP routes, it defines console based entry points (routes) into your application.
+يمكنك تعريف أوامر المعراض القائمة على الإغلاق (Closure based console commands) الخاص بك في ملف `console.php`. كل إغلاق مُقَيَّـد بمثيل أمر يمَكِّـن مقاربة سهلة من التعامل مع كل طرق مدخلات ومخرجات الأمر. بالرغم من أن هذا الملف لا يُعَرِّف طلبات HTTP، فهو يعرف نقاط الدخول القائمة على المعراض (موجهات) في تطبيقك.
+
+يمكنك تسجيل كل قنوات بث الأحداث التي يدعمها تطبيقك في ملف `channels.php`.
 
 <a name="the-storage-directory"></a>
-#### The Storage Directory
+#### مجلد Storage
 
-The `storage` directory contains your compiled Blade templates, file based sessions, file caches, and other files generated by the framework. This directory is segregated into `app`, `framework`, and `logs` directories. The `app` directory may be used to store any files generated by your application. The `framework` directory is used to store framework generated files and caches. Finally, the `logs` directory contains your application's log files.
+مجلد `storage` يحوي قوالب Blade المترجمة، الجلسات القائمة على الملف، ملف ذاكرة التخزين المؤقتة (cache)، وملفات أخرى قام بإنشائها إطار العمل. هذا المجلد ينقسم إلى مجلدات `app` و`framework` و`logs`. يمكن استخدام مجلد `app` لحفظ أي ملفات منشأة من قبل تطبيقك. يمكن استخدام مجلد `framework` لحفظ الملفات المنشأة وملفات ذاكرة التخزين المؤقتة. وأخيرا، يحوي مجلد `logs` ملفات السجل الخاصة بتطبيقك.
 
-The `storage/app/public` directory may be used to store user-generated files, such as profile avatars, that should be publicly accessible. You should create a symbolic link at `public/storage` which points to this directory. You may create the link using the `php artisan storage:link` command.
+يمكن استخدام مجلد `storage/app/public` لحفظ الملفات المنشأة من طرف المستخدمين، مثل الصور الرمزية للملف الشخصي، التي ينبغي أن تكون متاحة للجميع. يجب عليك إنشاء رابط رمزي في `public/storage` يشير إلى هذا المجلد. يمكنك إنشاء الرابط باستعمال الأمر `php artisan storage:link`.
 
 <a name="the-tests-directory"></a>
-#### The Tests Directory
+#### مجلد Tests
 
-The `tests` directory contains your automated tests. An example [PHPUnit](https://phpunit.de/) is provided out of the box. Each test class should be suffixed with the word `Test`. You may run your tests using the `phpunit` or `php vendor/bin/phpunit` commands.
+مجلد `tests` يحوي اختباراتك الأوتوماتيكية. مثلا [PHPUnit](https://phpunit.de/) متوفر افتراضيا. كل صنف (class) اختبار يجب أن يبدأ بكلمة `Test`. يمكنك تشغيل اختباراتك عبر الأمر `phpunit` أو الأمر `php vendor/bin/phpunit`. 
 
 <a name="the-vendor-directory"></a>
-#### The Vendor Directory
+#### مجلد Vendor
 
-The `vendor` directory contains your [Composer](https://getcomposer.org) dependencies.
+مجلد `vendor` يحتوي تبعيات [composer](https://getcomposer.org) الخاصة بك.
 
 <a name="the-app-directory"></a>
-## The App Directory
+## مجلد App
 
-The majority of your application is housed in the `app` directory. By default, this directory is namespaced under `App` and is autoloaded by Composer using the [PSR-4 autoloading standard](http://www.php-fig.org/psr/psr-4/).
+يضم مجلد `app` معظم (ملفات) تطبيقك. بشكل افتراضي، مساحة اسم هذا المجلد هي `App` ويتم تحميلها آليا بواسطة composer باستعمال [معيار PSR-4 للتحميل الآلي](http://www.php-fig.org/psr/psr-4/). 
 
-The `app` directory contains a variety of additional directories such as `Console`, `Http`, and `Providers`. Think of the `Console` and `Http` directories as providing an API into the core of your application. The HTTP protocol and CLI are both mechanisms to interact with your application, but do not actually contain application logic. In other words, they are simply two ways of issuing commands to your application. The `Console` directory contains all of your Artisan commands, while the `Http` directory contains your controllers, middleware, and requests.
+يحوي مجلد `app` عدة مجلدات أخرى منها `Console` و`Http` و`Providers`. يمكنك اعتبار المجلدين `ِConsole` و`Http` موفرين لواجهة برمجة تطبيقات (API) داخل تطبيقك. كل من بروتوكول HTTP وCLI آليات للتفاعل مع تطبيقك، لكنهما لا يحويان منطق التطبيق. بعبارة أخرى، هما طريقان لإصدار الأموار بسهولة إلى تطبيقك. يحوي مجلد `Console` كل أوامر Artisan الخاصة بك، بينما يحوي مجلد `Http` المتحكمات (controllers) الخاصة بك، الوسائط (middlewares)، والطلبات (requests).
 
-A variety of other directories will be generated inside the `app` directory as you use the `make` Artisan commands to generate classes. So, for example, the `app/Jobs` directory will not exist until you execute the `make:job` Artisan command to generate a job class.
+عدة مجلدات أخرى يتم توليدها داخل مجلد `app` وذلك كلما قمت باستعمال أمر Artisan `make` لتوليد الأصناف. مثلا مجلد `app/Jobs` لن يكون موجودا حتى يتم تنفيذ الأمر `make:job` لتوليد صنف مهمة (job class).
 
-> {tip} Many of the classes in the `app` directory can be generated by Artisan via commands. To review the available commands, run the `php artisan list make` command in your terminal.
+>{تلميح} العديد من الأصناف من مجلد `app` يتم توليدها بواسطة Artisan عبر الأوامر. لرؤية الأوامر المتاحة، قم يتنفيذ الأمر `php artisan list make` في الطرفية.
 
 <a name="the-console-directory"></a>
-#### The Console Directory
+#### مجلد Console
 
-The `Console` directory contains all of the custom Artisan commands for your application. These commands may be generated using the `make:command` command. This directory also houses your console kernel, which is where your custom Artisan commands are registered and your [scheduled tasks](/docs/{{version}}/scheduling) are defined.
+يحوي مجلد `ِConsole` أوامر Artisan المعدَّلة لتطبيقك. يمكن توليد تلك الأوامر عبر تنفيذ الأمر `make:command`. يحوي هذا المجلد أيضا نواة console الخاص بك، أين يتم تسجيل أوامر Artisan ويتم تعريف [المهام المجدولة](/docs/{{version}}/scheduling) الخاصة بك.
 
 <a name="the-events-directory"></a>
-#### The Events Directory
+#### مجلد Events
 
-This directory does not exist by default, but will be created for you by the `event:generate` and `make:event` Artisan commands. The `Events` directory, as you might expect, houses [event classes](/docs/{{version}}/events). Events may be used to alert other parts of your application that a given action has occurred, providing a great deal of flexibility and decoupling.
+هذا المجلد غير موجود بشكل افتراضي، لكن سيتم إضافته من أجلك عبر تنفيذ أوامر`event:generate`و`make:event` Artisan. يحوي مجلد `Events`، كما تتوقع، [أصناف الأحداث](/docs/{{version}}/events). يمكن استعمال الأحداث لتنبيه أجزاء أخرى من تطبيقك أن نشاطا ما قد حدث، مما يوفر قدرا كبير من المرونة والفصل (decoupling).
 
 <a name="the-exceptions-directory"></a>
-#### The Exceptions Directory
+#### مجلد Exceptions
 
-The `Exceptions` directory contains your application's exception handler and is also a good place to place any exceptions thrown by your application. If you would like to customize how your exceptions are logged or rendered, you should modify the `Handler` class in this directory.
+يحوي مجلد `Exceptions` معالج الاستثناءات الخاص بتطبيقك وهو مكان مناسب لوضع أي استثناءات لتطبيقك. إذا كنت تريد تخصيص كيفية تسجيل وعرض الاستثناءات الخاصة بك، عليك تعديل صنف `Handler` في هذا المجلد.
 
 <a name="the-http-directory"></a>
-#### The Http Directory
+#### مجلد Http
 
-The `Http` directory contains your controllers, middleware, and form requests. Almost all of the logic to handle requests entering your application will be placed in this directory.
+يحوي مجلد `Http` المتحكمات الخاصة بك، الوسائط، وطلبات النماذج. تقريبا كل المنطق الذي سيعالج الطلبات الداخلة لتطبيقك سيتم وضعها في هذا المجلد. 
 
 <a name="the-jobs-directory"></a>
-#### The Jobs Directory
+#### مجلد Jobs
 
-This directory does not exist by default, but will be created for you if you execute the `make:job` Artisan command. The `Jobs` directory houses the [queueable jobs](/docs/{{version}}/queues) for your application. Jobs may be queued by your application or run synchronously within the current request lifecycle. Jobs that run synchronously during the current request are sometimes referred to as "commands" since they are an implementation of the [command pattern](https://en.wikipedia.org/wiki/Command_pattern).
+افتراضيا هذا المجلد غير موجود، لكن سيتم إنشاؤه من أجلك عند تنفيذك أمر Artisan `make:job`. يحوي مجلد `Jobs` [المهام القابلة للتصفيف](/docs/{{version}}/queues) الخاصة بتطبيقك. المهام يمكن تصفيفها من قِبَـل تطبيقك عبر تشغيلها بصفة متزامنة ضمن دورة حياة الطلب الحالي. المهام التي يتم تشغيلها بصفة متزامنة خلال الطلب الحالي يتم الإشارة إليها أحيانا بـ"أوامر" نظرا لأنها تطبيق لـ[نمط الأمر](https://en.wikipedia.org/wiki/Command_pattern)  
 
 <a name="the-listeners-directory"></a>
-#### The Listeners Directory
+#### مجلد Listeners
 
-This directory does not exist by default, but will be created for you if you execute the `event:generate` or `make:listener` Artisan commands. The `Listeners` directory contains the classes that handle your [events](/docs/{{version}}/events). Event listeners receive an event instance and perform logic in response to the event being fired. For example, a `UserRegistered` event might be handled by a `SendWelcomeEmail` listener.
+افتراضيا هذا المجلد غير موجود، لكن سيتم إنشاؤه من أجلك عند تنفيذك للأوامر Artisan `event:generate` أو `make:listener`. يحوي مجلد `Listeners` الأصناف المسؤولة عن معالجة [الأحداث](/docs/{{version}}/events) الخاصة بك. يستقبل مستمعو الأحداث (Event listeners) حدثا ويقومون بتنفيذ المنطق ردا على الحدث الذي تم إطلاقه. مثلا، حدث `UserRegistered` يمكن معالجته عن طريق مستمع `SendWelcomeEmail`.  
 
 <a name="the-mail-directory"></a>
-#### The Mail Directory
+#### مجلد Mail
 
-This directory does not exist by default, but will be created for you if you execute the `make:mail` Artisan command. The `Mail` directory contains all of your classes that represent emails sent by your application. Mail objects allow you to encapsulate all of the logic of building an email in a single, simple class that may be sent using the `Mail::send` method.
+افتراضيا هذا المجلد غير موجود، لكن سيتم إنشاؤه من أجلك عند تنفيذك لأمر Artisan `make:mail`. يحوي مجلد `Mail` كل الأصناف الخاصة بك التي تمثل رسائل البريد الالكتروني التي تم إرسالها بواسطة تطبيقك. تُمكنك كائنات Mail من تغليف منطق إنشاء بريد إلكتروني في صنف واحد يمكن إرساله عبر الدالة `Mail::send`.
 
 <a name="the-notifications-directory"></a>
-#### The Notifications Directory
+#### مجلد Notifications
 
-This directory does not exist by default, but will be created for you if you execute the `make:notification` Artisan command. The `Notifications` directory contains all of the "transactional" notifications that are sent by your application, such as simple notifications about events that happen within your application. Laravel's notification features abstracts sending notifications over a variety of drivers such as email, Slack, SMS, or stored in a database.
+افتراضيا هذا المجلد غير موجود، لكن سيتم إنشاؤه من أجلك عند تنفيذك لأمر Artisan `make:notification`. يحوي مجلد `Notifications` تنبيهات الإعلامات ("transactional" notifications) التي يتم إرسالها عبر تطبيقك، مثل تنبيهات الأحداث التي تحدث داخل تطبيقك. ميزات تنبيه لارافال تجريد لإرسال تنبيهات عبر مجموعة متنوعة من التعريفات (drivers) مثل البريد الإلكتروني وSlack والإرساليات القصيرة SMS أو حفظها في قاعدة بيانات.   
 
 <a name="the-policies-directory"></a>
-#### The Policies Directory
+#### مجلد Policies
 
-This directory does not exist by default, but will be created for you if you execute the `make:policy` Artisan command. The `Policies` directory contains the authorization policy classes for your application. Policies are used to determine if a user can perform a given action against a resource. For more information, check out the [authorization documentation](/docs/{{version}}/authorization).
+افتراضيا هذا المجلد غير موجود، لكن سيتم إنشاؤه من أجلك عند تنفيذك لأمر Artisan `make:policy`. يحوي مجلد `Policies` أصناف سياسة التصريح الخاصة بتطبيقك. السياسات تُستخدم لتحديد إمكانية تنفيذ إجراء معين لمورد معين بواسطة مستخدم معين. لمزيد من المعلومات، ألق نظرة على [توثيق التصريح](/docs/{{version}}/authorization).   
 
 <a name="the-providers-directory"></a>
-#### The Providers Directory
+#### مجلد Providers
 
-The `Providers` directory contains all of the [service providers](/docs/{{version}}/providers) for your application. Service providers bootstrap your application by binding services in the service container, registering events, or performing any other tasks to prepare your application for incoming requests.
+يحوي مجلد `Providers` كل [مزَوِّدي الخدمة](/docs/{{version}}/providers) لتطبيقك. يُمَهِّـد مزوِّدو الخدمة تطبيقك عبر ربط الخدمات في حاوية الخدمة (service container)، تسجيل الأحداث، أو تنفيذ أي مهام أخرى ليكون تطبيقك على استعداد للطلبات الواردة.
 
-In a fresh Laravel application, this directory will already contain several providers. You are free to add your own providers to this directory as needed.
+في تطبيق لارافال جديد، يحوي هذا المجلد بعضا من المزوِّدين. يمكن إضافة مزودين داخل هذا الملف عند الحاجة.
