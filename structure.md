@@ -147,7 +147,7 @@
 <a name="the-notifications-directory"></a>
 #### مجلد Notifications
 
-This directory does not exist by default, but will be created for you if you execute the `make:notification` Artisan command. The `Notifications` directory contains all of the "transactional" notifications that are sent by your application, such as simple notifications about events that happen within your application. Laravel's notification features abstracts sending notifications over a variety of drivers such as email, Slack, SMS, or stored in a database.
+افتراضيا هذا المجلد غير موجود، لكن سيتم إنشاؤه من أجلك عند تنفيذك لأمر Artisan `make:notification`. يحوي مجلد `Notifications` تنبيهات الإعلامات ("transactional" notifications) التي يتم إرسالها عبر تطبيقك، مثل تنبيهات الأحداث التي تحدث داخل تطبيقك. ميزات تنبيه لارافال تجريد لإرسال تنبيهات عبر مجموعة متنوعة من التعريفات (drivers) مثل البريد الإلكتروني وSlack والإرساليات القصيرة SMS أو حفظها في قاعدة بيانات.   
 
 <a name="the-policies-directory"></a>
 #### مجلد Policies
