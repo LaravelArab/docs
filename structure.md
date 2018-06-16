@@ -152,7 +152,7 @@
 <a name="the-policies-directory"></a>
 #### مجلد Policies
 
-This directory does not exist by default, but will be created for you if you execute the `make:policy` Artisan command. The `Policies` directory contains the authorization policy classes for your application. Policies are used to determine if a user can perform a given action against a resource. For more information, check out the [authorization documentation](/docs/{{version}}/authorization).
+افتراضيا هذا المجلد غير موجود، لكن سيتم إنشاؤه من أجلك عند تنفيذك لأمر Artisan `make:policy`. يحوي مجلد `Policies` أصناف سياسة التصريح الخاصة بتطبيقك. السياسات تستخدم لتحديد إذا كان المستخدم يمكنه تنفيذ إجراء معين لمورد معين. لمزيد من المعلومات، ألق نظرة على [توثيق التصريح](/docs/{{version}}/authorization).   
 
 <a name="the-providers-directory"></a>
 #### مجلد Providers
