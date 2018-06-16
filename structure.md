@@ -157,6 +157,6 @@
 <a name="the-providers-directory"></a>
 #### مجلد Providers
 
-The `Providers` directory contains all of the [service providers](/docs/{{version}}/providers) for your application. Service providers bootstrap your application by binding services in the service container, registering events, or performing any other tasks to prepare your application for incoming requests.
+يحوي مجلد `Providers` كل [مزَوِّدي الخدمة](/docs/{{version}}/providers) لتطبيقك. يُمَهِّـد مزوِّدو الخدمة تطبيقك عبر ربط الخدمات في حاوية الخدمة (service container)، تسجيل الأحداث، أو تنفيذ أي مهام أخرى ليكون تطبيقك على استعداد للطلبات الواردة.
 
-In a fresh Laravel application, this directory will already contain several providers. You are free to add your own providers to this directory as needed.
+في تطبيق لارافال جديد، يحوي هذا المجلد بعضا من المزوِّدين. يمكن إضافة مزودين داخل هذا الملف عند الحاجة.
