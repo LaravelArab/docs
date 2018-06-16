@@ -142,7 +142,7 @@
 <a name="the-mail-directory"></a>
 #### مجلد Mail
 
-This directory does not exist by default, but will be created for you if you execute the `make:mail` Artisan command. The `Mail` directory contains all of your classes that represent emails sent by your application. Mail objects allow you to encapsulate all of the logic of building an email in a single, simple class that may be sent using the `Mail::send` method.
+افتراضيا هذا المجلد غير موجود، لكن سيتم إنشاؤه من أجلك عند تنفيذك لأمر Artisan `make:mail`. يحوي مجلد `Mail` كل الأصناف الخاصة بك التي تمثل رسائل البريد الالكتروني التي تم إرسالها بواسطة تطبيقك. تُمكنك كائنات Mail من تغليف منطق إنشاء بريد إلكتروني في صنف واحد يمكن إرساله عبر الدالة `Mail::send`.
 
 <a name="the-notifications-directory"></a>
 #### مجلد Notifications
