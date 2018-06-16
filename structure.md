@@ -91,7 +91,7 @@
 <a name="the-tests-directory"></a>
 #### مجلد Tests
 
-مجلد `tests` يحوي اختباراتك الأوتوماتيكية. مثلا [PHPUnit](https://phpunit.de/) متوفر افتراضيا. كل صنف (class) اختبار يجب أن تبدأ بكلمة `Test`. يمكنك تشغيل اختباراتك عبر الأمر `phpunit` أو الأمر `php vendor/bin/phpunit`. 
+مجلد `tests` يحوي اختباراتك الأوتوماتيكية. مثلا [PHPUnit](https://phpunit.de/) متوفر افتراضيا. كل صنف (class) اختبار يجب أن يبدأ بكلمة `Test`. يمكنك تشغيل اختباراتك عبر الأمر `phpunit` أو الأمر `php vendor/bin/phpunit`. 
 
 <a name="the-vendor-directory"></a>
 #### مجلد Vendor
@@ -137,7 +137,7 @@
 <a name="the-listeners-directory"></a>
 #### مجلد Listeners
 
-This directory does not exist by default, but will be created for you if you execute the `event:generate` or `make:listener` Artisan commands. The `Listeners` directory contains the classes that handle your [events](/docs/{{version}}/events). Event listeners receive an event instance and perform logic in response to the event being fired. For example, a `UserRegistered` event might be handled by a `SendWelcomeEmail` listener.
+افتراضيا هذا المجلد غير موجود، لكن سيتم إنشاؤه من أجلك عند تنفيذك للأوامر Artisan `event:generate` أو `make:listener`. يحوي مجلد `Listeners` الأصناف المسؤولة عن معالجة [الأحداث](/docs/{{version}}/events) الخاصة بك. يستقبل مستمعو الأحداث (Event listeners) حدثا ويقومون بتنفيذ المنطق ردا على الحدث الذي تم إطلاقه. مثلا، حدث `UserRegistered` يمكن معالجته عن طريق مستمع `SendWelcomeEmail`.  
 
 <a name="the-mail-directory"></a>
 #### مجلد Mail
