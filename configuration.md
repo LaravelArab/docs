@@ -11,14 +11,14 @@
 <a name="introduction"></a>
 ## المقدمة
 
-يتم تخزين كافة ملفات الإعداد لإطار لارافيل في دليل `config`. يتم توثيق كل خيار، لذلك لا تتردد في إلقاء نظرة على الملفات لتُكَـوِّن فكرة على الخيارات المتاحة لك.
+يتم تخزين كافة ملفات الإعداد لإطار لارافال في دليل `config`. يتم توثيق كل خيار، لذلك لا تتردد في إلقاء نظرة على الملفات لتُكَـوِّن فكرة على الخيارات المتاحة لك.
 
 <a name="environment-configuration"></a>
 ## إعداد البيئة
 
 غالبا ما يكون من المفيد الحصول على قيم إعداد مختلفة استنادا إلى البيئة التي يتم تشغيل التطبيق فيها. على سبيل المثال، قد ترغب باستخدام برنامج تشغيل ذاكرة التخزين المؤقتة محليا مختلفا عن ما تستخدمه في خادوم الإنتاج الخاص بك.
 
-لجعل هذا مهمة سهلة للغاية، لارافيل يستخدم مكتبة PHP [DotEnv](https://github.com/vlucas/phpdotenv) من فانس لوكاس. عند تنصيب نسخة لارافيل جديدة، سيحتوي دليل الجذر الخاص بتطبيقك على ملف `.env.example`. إذا قمت بتنصيب لارافيل باستخدام الملحن (composer) سيتم تلقائيا إعادة تسيمة هذا الملف بـ`.env`. إن لم تستعمل الطرق الآنفة لتنصيب لارافيل يجب إعادة تسمية الملف يدويا. 
+لجعل هذا مهمة سهلة للغاية، لارافال يستخدم مكتبة PHP [DotEnv](https://github.com/vlucas/phpdotenv) من فانس لوكاس. عند تنصيب تطبيق لارافال جديد، سيحتوي دليل الجذر الخاص بتطبيقك على ملف `.env.example`. إذا قمت بتنصيب لارافال باستخدام composer سيتم تلقائيا إعادة تسمية هذا الملف بـ`.env`. إن لم تستعمل الطرق الآنفة لتنصيب لارافال يجب إعادة تسمية الملف يدويا. 
 
 Your `.env` file should not be committed to your application's source control, since each developer / server using your application could require a different environment configuration. Furthermore, this would be a security risk in the event an intruder gain access to your source control repository, since any sensitive credentials would get exposed.
 
