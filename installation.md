@@ -13,11 +13,11 @@
 > {video} لاراكاست يوفر [مقدمة شاملة للارافيل مجانا](http://laravelfromscratch.com/) للمستعملين الجدد لإطار العمل. إنه مكان عظيم لانطلاق رحلتك.
 
 <a name="server-requirements"></a>
-### Server Requirements
+### متطلبات الخادوم
 
-The Laravel framework has a few system requirements. Of course, all of these requirements are satisfied by the [Laravel Homestead](/docs/{{version}}/homestead) virtual machine, so it's highly recommended that you use Homestead as your local Laravel development environment.
+متطلبات النظام لإطار العمل لارافيل قليلة. ولكن جميع هذه المتطلبات تصلح للآلة الإفتراضية [لارافيل هومستيد](/docs/{{version}}/homestead)، لذلك من المؤكد استخدام هومستيد بيئةَ تطوير لارفيل المحلية لديك.
 
-However, if you are not using Homestead, you will need to make sure your server meets the following requirements:
+وعلى كل حال، إذا كنت لا تستخدم هومستيد، فستحتاج إلى التأكد من توفر خادومك على المتطلبات الآتية:
 
 <div class="content-list" markdown="1">
 - PHP >= 7.1.3
