@@ -1,11 +1,11 @@
-# Installation
+# التنصيب
 
-- [Installation](#installation)
-    - [Server Requirements](#server-requirements)
-    - [Installing Laravel](#installing-laravel)
-    - [Configuration](#configuration)
-- [Web Server Configuration](#web-server-configuration)
-    - [Pretty URLs](#pretty-urls)
+- [التنصيب](#installation)
+    - [متطلبات الخادوم](#server-requirements)
+    - [تـنصيب لارفيل](#installing-laravel)
+    - [الإعداد](#configuration)
+- [إعداد خادوم الويب](#web-server-configuration)
+    - [مسارات جميلة](#pretty-urls)
 
 <a name="installation"></a>
 ## Installation
