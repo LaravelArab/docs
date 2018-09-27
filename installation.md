@@ -8,9 +8,9 @@
     - [مسارات جميلة](#pretty-urls)
 
 <a name="installation"></a>
-## Installation
+## التنصيب
 
-> {video} Laracasts provides a [free, thorough introduction to Laravel](http://laravelfromscratch.com) for newcomers to the framework. It's a great place to start your journey.
+> {video} لاراكاست يوفر [مقدمة شاملة للارافيل مجانا](http://laravelfromscratch.com/) للمستعملين الجدد لإطار العمل. إنه مكان عظيم لانطلاق رحلتك.
 
 <a name="server-requirements"></a>
 ### Server Requirements
