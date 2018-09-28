@@ -67,11 +67,11 @@
 وبطبيعة الحال، خيارات التطوير المحلية الأكثر قوة مُتَاحة عبر [هومستيد](/docs/{{version}}/homestead) و[فاليت](/docs/{{version}}/valet).
 
 <a name="configuration"></a>
-### Configuration
+### الإعداد
 
-#### Public Directory
+#### الدليل العام
 
-After installing Laravel, you should configure your web server's document / web root to be the `public` directory. The `index.php` in this directory serves as the front controller for all HTTP requests entering your application.
+بعد تثبيت لارافيل، يجب عليك إعداد جذر الويب / وثيقة خادوم الويب الخاص بك ليكون الدليل `public`. يعمل `index.php` في هذا الدليل كمتحكم أمامي لجميع طلبات HTTP التي تدخل تطبيقك.
 
 #### Configuration Files
 
