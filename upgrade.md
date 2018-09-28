@@ -44,6 +44,24 @@ The `$schedule->job` method now respects the `queue` and `connection` properties
 
 Generally, this should be considered a bug fix; however, it is listed as a breaking change out of caution. [Please let us know if you encounter any issues surrounding this change](https://github.com/laravel/framework/pull/25216).
 
+### Assets
+
+#### Asset Directory Flattened
+
+**Likelihood Of Impact: None**
+
+For new Laravel 5.7 applications, the assets directory that contains the scripts and styles has been flattened into the `resources` directory. This **will not** affect existing applications and does not requires changes to your existing applications.
+
+However, if you wish to make this change, you should move all files from the `resources/assets/*` directory up one level:
+
+- From `resources/assets/js/*` to `resources/js/*`
+- From `resources/assets/sass/*` to `resources/sass/*`
+
+Then, update any reference to the old directories in your `webpack.mix.js` file:
+
+    mix.js('resources/js/app.js', 'public/js')
+       .sass('resources/sass/app.scss', 'public/css');
+
 ### Authentication
 
 #### The `Authenticate` Middleware
@@ -125,6 +143,16 @@ The Blade "or" operator has been removed in favor of PHP's built-in `??` "null c
 
     // Laravel 5.7...
     {{ $foo ?? 'default' }}
+
+### Cache
+
+**Likelihood Of Impact: Very High**
+
+A new `data` directory has been added to `storage/framework/cache`. You should create this directory in your own application.
+
+After creating the directory, ensure that the [storage/framework/cache/.gitignore](https://github.com/laravel/laravel/blob/76369205c8715a4a8d0d73061aa042a74fd402dc/storage/framework/cache/.gitignore) file is updated.
+
+Finally, add a [.gitignore](https://github.com/laravel/laravel/blob/76369205c8715a4a8d0d73061aa042a74fd402dc/storage/framework/cache/data/.gitignore) file to the newly created `data` directory.
 
 ### Carbon
 
@@ -410,7 +438,6 @@ The `validate` method [was added to the `Illuminate\Contracts\Validation\Validat
     public function validate();
 
 If you are implementing this interface, you should add this method to your implementation.
-
 
 ### Miscellaneous
 
