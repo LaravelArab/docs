@@ -87,16 +87,16 @@
 
 عادة، يجب أن يكون هذا النص متكونا من 32 حرفا. يمكن تعيين المفتاح في ملف البيئة `.env`. إذا لم تكن قد قمت بتسمية الملف `.env.example` بـ `.env`، فعليك إجراء ذلك الآن. **إذا لم يتم تعيين مفتاح التطبيق، جلسات المستخدم الخاصة بك وغيرها من البيانات المشفرة لن تكون آمنة** !
 
-#### Additional Configuration
+#### إعداد إضافي
 
-Laravel needs almost no other configuration out of the box. You are free to get started developing! However, you may wish to review the `config/app.php` file and its documentation. It contains several options such as `timezone` and `locale` that you may wish to change according to your application.
+لارافيل لا يحتاج تقريبا أي إعداد آخر. تستطيع الآن البدء بالتطوير! ومع ذلك، قد ترغب في مراجعة ملف `config/app.php` ووثائقه الذي يحتوي على عدة خيارات مثل `timezone` و`locale` التي قد ترغب في تغييرها وفقا لتطبيقك.
 
-You may also want to configure a few additional components of Laravel, such as:
+قد تحتاج أيضا إلى إعداد بعض مكونات إضافية من لارافيل، مثل:
 
 <div class="content-list" markdown="1">
-- [Cache](/docs/{{version}}/cache#configuration)
-- [Database](/docs/{{version}}/database#configuration)
-- [Session](/docs/{{version}}/session#configuration)
+- [ذاكرة التخزين المؤقتة](/docs/{{version}}/cache#configuration)
+- [قاعدة البيانات](/docs/{{version}}/database#configuration)
+- [الجلسة](/docs/{{version}}/session#configuration)
 </div>
 
 <a name="web-server-configuration"></a>
