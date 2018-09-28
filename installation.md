@@ -31,40 +31,40 @@
 </div>
 
 <a name="installing-laravel"></a>
-### Installing Laravel
+### تنصيب لارفيل
 
-Laravel utilizes [Composer](https://getcomposer.org) to manage its dependencies. So, before using Laravel, make sure you have Composer installed on your machine.
+يستخدم لارافيل [Composer](https://getcomposer.org) لإدارة معتمداته. لذا، قبل استخدام لارافيل، تأكد من تثبيت Composer على جهازك.
 
-#### Via Laravel Installer
+#### باستعمال مُثَبِّـت لارافيل
 
-First, download the Laravel installer using Composer:
+أولا، قم بتحميل مثبت لارافيل باستخدام Composer:
 
     composer global require "laravel/installer"
 
-Make sure to place composer's system-wide vendor bin directory in your `$PATH` so the laravel executable can be located by your system. This directory exists in different locations based on your operating system; however, some common locations include:
+تأكد من وضع دليل composer (أو الدليل المكافئ لنظام التشغيل الخاص بك) `vendor bin` في `$PATH` ليتمكن نظامك من العثور على الأمر التنفيذي laravel. يوجد هذا الدليل في مواقع مختلفة بناءً على نظام التشغيل الخاص بك؛ ومع ذلك، تتضمن بعض المواقع الشائعة:
 
 <div class="content-list" markdown="1">
 - macOS: `$HOME/.composer/vendor/bin`
 - GNU / Linux Distributions: `$HOME/.config/composer/vendor/bin`
 </div>
 
-Once installed, the `laravel new` command will create a fresh Laravel installation in the directory you specify. For instance, `laravel new blog` will create a directory named `blog` containing a fresh Laravel installation with all of Laravel's dependencies already installed:
+بمجرد التثبيت ، سيؤدي الأمر `laravel new` إلى إنشاء تثبيت Laravel جديد في الدليل الذي تحدده. على سبيل المثال ، سيعمل `laravel new blog` على إنشاء دليل باسم` blog` يحتوي على تثبيت Laravel جديد مع جميع تبعيات Laravel المثبتة بالفعل:
 
     laravel new blog
 
-#### Via Composer Create-Project
+#### بواسطة Composer Create-Project
 
-Alternatively, you may also install Laravel by issuing the Composer `create-project` command in your terminal:
+بدلا من ذلك، يمكنك أيضا تثبيت لارافيل عن طريق تنفيذ الأمر `create-project` في الطرفية:
 
     composer create-project --prefer-dist laravel/laravel blog
 
-#### Local Development Server
+#### خادوم التطوير المحلي
 
-If you have PHP installed locally and you would like to use PHP's built-in development server to serve your application, you may use the `serve` Artisan command. This command will start a development server at `http://localhost:8000`:
+إذا كنت تملك PHP مثبتا محليا وكنت ترغب في استخدام خادوم التطوير المُدْمج في PHP لخدمة تطبيقك، يمكنك استخدام الأمر `artisan serve`. سيبدأ هذا الأمر في تشغيل خادوم التطوير على `http://localhost:8000`:
 
     php artisan serve
 
-Of course, more robust local development options are available via [Homestead](/docs/{{version}}/homestead) and [Valet](/docs/{{version}}/valet).
+وبطبيعة الحال، خيارات التطوير المحلية الأكثر قوة مُتَاحة عبر [هومستيد](/docs/{{version}}/homestead) و[فاليت](/docs/{{version}}/valet).
 
 <a name="configuration"></a>
 ### Configuration
