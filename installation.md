@@ -100,16 +100,16 @@
 </div>
 
 <a name="web-server-configuration"></a>
-## Web Server Configuration
+## إعداد خادوم الويب
 
 <a name="pretty-urls"></a>
-### Pretty URLs
+### عناوين أنترنت جميلة
 
-#### Apache
+#### أباتشي
 
-Laravel includes a `public/.htaccess` file that is used to provide URLs without the `index.php` front controller in the path. Before serving Laravel with Apache, be sure to enable the `mod_rewrite` module so the `.htaccess` file will be honored by the server.
+يتضمن لارافيل ملف `public/.htaccess` الذي يتم استخدامه لتوفير عناوين أنترنت دون وحدة التحكم الأمامية `index.php` في المسار. قبل أن يعمل لارافيل مع أباتشي، تأكد من تمكين وحدة `mod_rewrite` بحيث سيتم «تكريم» ملف `.htaccess` من قبل الخادوم.
 
-If the `.htaccess` file that ships with Laravel does not work with your Apache installation, try this alternative:
+إذا كان الملف `.htaccess` الذي يكون مع لارافيل أصلا لا يعمل مع تثبيت أباتشي، قم بتجربة هذا البديل:
 
     Options +FollowSymLinks -Indexes
     RewriteEngine On
@@ -118,12 +118,12 @@ If the `.htaccess` file that ships with Laravel does not work with your Apache i
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 
-#### Nginx
+#### إنجن إكس
 
-If you are using Nginx, the following directive in your site configuration will direct all requests to the `index.php` front controller:
+إذا كنت تستخدم إنجن إكس، فإن التوجيه التالي في إعداد موقعك سيقوم بتوجية جميع الطلبات إلى وحدة التحكم الأمامية: `index.php`
 
     location / {
         try_files $uri $uri/ /index.php?$query_string;
     }
 
-Of course, when using [Homestead](/docs/{{version}}/homestead) or [Valet](/docs/{{version}}/valet), pretty URLs will be automatically configured.
+طبعا عند استخدام [هومستيد](/docs/{{version}}/homestead) أو[فاليت ](/docs/{{version}}/valet)، سيتم إعداد عناوين الأنترنت الجميلة تلقائيا.
