@@ -77,9 +77,9 @@
 
 يتم تخزين كافة ملفات الإعداد لإطار لارافيل في دليل `config`. يتم توثيق كل خيار، لذلك لا تـتردد في إلقاء نظرة على ملفات الإعداد لتكون على دراية بالخيارات المتاحة.
 
-#### Directory Permissions
+#### تصريحات الدليل
 
-After installing Laravel, you may need to configure some permissions. Directories within the `storage` and the `bootstrap/cache` directories should be writable by your web server or Laravel will not run. If you are using the [Homestead](/docs/{{version}}/homestead) virtual machine, these permissions should already be set.
+بعد تثبيت لارافيل، قد تحتاج إلى إعداد بعض التصريحات. الدلائل داخل `storage` ودليل `bootstrap/cache` يجب أن تكون قابلة للكتابة من قبل خادوم الويب الخاص بك وإلا فلن يتم تشغيل لارافيل. إذا كنت تستخدم الآلة الإفتراضية [هومستيد](/docs/{{version}}/homestead)، تكون جميع هذه التصريحات مُفَعَّلة.
 
 #### Application Key
 
