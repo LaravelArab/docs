@@ -73,9 +73,9 @@
 
 بعد تثبيت لارافيل، يجب عليك إعداد جذر الويب / وثيقة خادوم الويب الخاص بك ليكون الدليل `public`. يعمل `index.php` في هذا الدليل كمتحكم أمامي لجميع طلبات HTTP التي تدخل تطبيقك.
 
-#### Configuration Files
+#### إعداد الملفات
 
-All of the configuration files for the Laravel framework are stored in the `config` directory. Each option is documented, so feel free to look through the files and get familiar with the options available to you.
+يتم تخزين كافة ملفات الإعداد لإطار لارافيل في دليل `config`. يتم توثيق كل خيار، لذلك لا تـتردد في إلقاء نظرة على ملفات الإعداد لتكون على دراية بالخيارات المتاحة.
 
 #### Directory Permissions
 
