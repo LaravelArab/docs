@@ -81,11 +81,11 @@
 
 بعد تثبيت لارافيل، قد تحتاج إلى إعداد بعض التصريحات. الدلائل داخل `storage` ودليل `bootstrap/cache` يجب أن تكون قابلة للكتابة من قبل خادوم الويب الخاص بك وإلا فلن يتم تشغيل لارافيل. إذا كنت تستخدم الآلة الإفتراضية [هومستيد](/docs/{{version}}/homestead)، تكون جميع هذه التصريحات مُفَعَّلة.
 
-#### Application Key
+#### مفتاح التطبيق
 
-The next thing you should do after installing Laravel is set your application key to a random string. If you installed Laravel via Composer or the Laravel installer, this key has already been set for you by the `php artisan key:generate` command.
+ بعد تثبيت لارافيل يجب تعيين مفتاح تطبيقك الذي يُمَثِّـل نصا عشوائيا. إذا قمت بتثبيت لارافيل عبر Composer أو مثبت لارافيل، يتم تعيين هذا المفتاح تلقائيا عبر أمر `php artisan key:generate`.
 
-Typically, this string should be 32 characters long. The key can be set in the `.env` environment file. If you have not renamed the `.env.example` file to `.env`, you should do that now. **If the application key is not set, your user sessions and other encrypted data will not be secure!**
+عادة، يجب أن يكون هذا النص متكونا من 32 حرفا. يمكن تعيين المفتاح في ملف البيئة `.env`. إذا لم تكن قد قمت بتسمية الملف `.env.example` بـ `.env`، فعليك إجراء ذلك الآن. **إذا لم يتم تعيين مفتاح التطبيق، جلسات المستخدم الخاصة بك وغيرها من البيانات المشفرة لن تكون آمنة** !
 
 #### Additional Configuration
 
