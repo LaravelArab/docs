@@ -48,7 +48,7 @@
 - GNU / Linux Distributions: `$HOME/.config/composer/vendor/bin`
 </div>
 
-بمجرد التثبيت ، سيؤدي الأمر `laravel new` إلى إنشاء تثبيت Laravel جديد في الدليل الذي تحدده. على سبيل المثال ، سيعمل `laravel new blog` على إنشاء دليل باسم` blog` يحتوي على تثبيت Laravel جديد مع جميع تبعيات Laravel المثبتة بالفعل:
+بمجرد التثبيت، سيؤدي الأمر `laravel new` إلى إنشاء تثبيت Laravel جديد في الدليل الذي تحدده. على سبيل المثال، سيعمل `laravel new blog` على إنشاء دليل باسم` blog` يحتوي على تثبيت Laravel جديد مع جميع تبعيات Laravel المثبتة بالفعل:
 
     laravel new blog
 
